@@ -1,8 +1,9 @@
 ﻿module.exports = {
     apps: [{
         name: 'ndmulti',
-        script: './server-startup.js',
+        script: './server-register.js',
         instances: 0,
-        exec_mode: 'cluster'
+        exec_mode: 'cluster',
+        merge_logs: true
     }]
 }
