@@ -37,10 +37,11 @@ sudo npm install pm2 -g
 - 홈디렉토리 이동 (as ubuntu)
 cd ~
 - git 클론   
-  git clone https://github.com/GaussJung/ndexe 
+  sudo git clone https://github.com/GaussJung/ndexe 
 
 - 라이브러리 설치 
- npm install   
+cd ~/ndexe
+sudo npm install   
  
 5. 기본 접속 
   cd ~/ndexe

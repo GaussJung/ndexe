@@ -1,11 +1,11 @@
 {
-  "name": "nodeExeTest",
+  "name": "nodeExeBase",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js",
+    "devstart": "nodemon server.js",
     "dev": "peerjs --port 3000 path",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +19,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/register": "^7.14.5",
     "nodemon": "^2.0.7"
   }
 }
