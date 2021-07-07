@@ -26,46 +26,59 @@ sudo apt-get install -y nodejs
 - 익스프레스 설치
 sudo npm install -g express
  
+ - 프로세스 관리도구 PM2설치 
+sudo npm install pm2 -g
+ 
 - 설치확인
  nodejs -v    > v14.15.3  --> v14.16.0 (2021. 03. 25 )  
 
-- 백그라운드 기동 forever 설치
-
-sudo npm install -g forever  
-
-
+ 
 4. 소스복제 
-- 기본디렉토리 생성
-
-sudo mkdir /svdata   
-
-cd /svdata  
-
-sudo mkdir work   
-
-- 기본디렉토리 이동 ( /svdata/work )
-
+- 홈디렉토리 이동 (as ubuntu)
+cd ~
 - git 클론   
-
-  git clone https://github.com/GaussJung/ndexe     
+  git clone https://github.com/GaussJung/ndexe 
 
 - 라이브러리 설치 
-
  npm install   
+ 
+5. 기본 접속 
+  cd ~/ndexe
 
-- 기동   
+- 기동     
+  1) 개발모드(http to localhost) 
+  sudo npm server.js
+  or 
+  sudo node server.js 
 
-  cd /svdata/work/ndexe   
+  2_1) 운영모드 기본
+  sudo pm2 start ecosystem.config.js
+    
+  ※ 서버기동중인 모든 Node종료 
+  sudo killall node  
+   
+  ※ PM2설정파일 
+  ecosystem.config.js
 
-5. 기본 접속 데모 
+## 환경설정에 따른 기동 정지 
+https://pm2.keymetrics.io/docs/usage/application-declaration/
 
-- 기동   
+# Start all applications
+pm2 start ecosystem.config.js
 
-  sudo forever start server.js ( 영구동작 )  
+# Stop all
+pm2 stop ecosystem.config.js
 
-  sudo npm start server.js ( ssh 접속중 동작, 로그파일 확인가능  )   
+# Restart all
+pm2 restart ecosystem.config.js
 
-6. 접속  
+# Reload all
+pm2 reload ecosystem.config.js
+
+# Delete all
+pm2 delete ecosystem.config.js 
+
+6. 동작확인 
 
 http://도메인:3000 or IP:3000/  
   
