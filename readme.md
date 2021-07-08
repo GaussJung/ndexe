@@ -10,9 +10,8 @@
 3. 설치 및 환경 (as ubuntu) 
 
 - AWS EC2 micro freetier 설치   
-
+- 서버 기본계정 ( ex : ubuntu ) 으로 설치진행시에 sudo 붙일것 (화면오류시 sudo 확인 )
 - 서버최신화   
-
   sudo apt-get update
 
 - 노드 V14. 설치
@@ -35,13 +34,16 @@ sudo npm install -g forever
 
 
 4. 소스복제 
-- 기본디렉토리 생성
+
+- 기본디렉토리 생성 
+- 최종 설치위치 : /svdata/work/ndexe   
+  ( 비고 : 설치 디렉토리는 예시임.  기타 디렉토리 /home/ubuntu/ndexe 에 만들어도 됨 )  
 
 sudo mkdir /svdata   
 
 cd /svdata  
 
-sudo mkdir work   
+sudo mkdir work   ( 디렉토리가 없을 경우 )  
 
 - 기본디렉토리 이동 ( /svdata/work )
 
@@ -51,7 +53,7 @@ sudo mkdir work
 
 - 라이브러리 설치 
 
- npm install   
+ sudo npm install   
 
 - 기동   
 
@@ -62,8 +64,10 @@ sudo mkdir work
 - 기동   
 
   sudo forever start server.js ( 영구동작 )  
-
-  sudo npm start server.js ( ssh 접속중 동작, 로그파일 확인가능  )   
+  or 
+  sudo npm start server.js ( ssh 접속중 동작, 로그 콘솔확인  )   
+  or 
+  sudo node server.js ( ssh 접속중 동작, 로그 콘솔확인 )   
 
 6. 접속  
 
