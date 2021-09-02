@@ -16,24 +16,114 @@
 
 
     <style>
-        input {
-            margin-bottom: 10px;
+
+        .bodyContainerWrap {
+            background:#00cc4e;
+            text-align:center; 
         }
+
+
+        .bodyContainer {
+            text-align:center; 
+            margin:0 auto; 
+        }
+
+
+        @media screen and (max-width: 768px) {  
+            .viewBoxWrap {
+                width:90%; 
+                margin:20px 0px; 
+            }
+		 }
+
+         @media screen and (min-width: 768px) {  
+            .viewBoxWrap {
+                width:45%; 
+                margin:20px 20px; 
+            }
+		 }
+ 
+        .viewBoxIn {
+            background:#0066cc;
+            border:2px solid #333333; 
+            display:inline-block;
+            line-height:32px; 
+        }
+
+        .viewBoxTxt {
+            color:#FFFFFF; 
+            font-size:24px;
+            font-weight:bold; 
+        }
+
     </style>
+
+    
 </head>
 
 <body>
 
-    <h1>Node Page For Cloud TEST V1.12</h1>
+    <h1>산운초등학교 문제은행 Pilot V0.9</h1>
+
+    <hr> 
+
     <ul>
         <li>현재시간 : <%= ctime %></li>
         <li>접속횟수 : <%= totalcnt %></li>
     </ul>
     <hr>
-    <a href="/admin"><input type="button" value="관리자" /></a> 
-    <a href="/user"><input type="button" value="사용자" /></a> 
+ 
     <a href="#" id='btnTest'>테스트</a> 
  
+    <div class='bodyContainerWrap' >
+        <div class='bodyContainer' >
+
+            <!-- BOX1 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1010" >
+                    <div class='viewBoxText'>
+                        3학년 수학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box1-->
+
+            <!-- BOX2 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1020" >
+                    <div class='viewBoxText'>
+                        3학년 과학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box2 -->
+
+
+            <!-- BOX3 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1030" >
+                    <div class='viewBoxText'>
+                        4학년 수학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box3 -->
+
+            <!-- BOX4 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1040" >
+                    <div class='viewBoxText'>
+                        4학년 과학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box4 -->
+
+
+        </div>
+         <!-- EOF bodyContainer -->
+    </div>
+    <!-- EOF bodyContainerWrap-->
     <script src="localJS/mainscript.js" defer></script>
 
 </body>

@@ -43,7 +43,8 @@ app.get('/', (req, res) => {
     // 접속시간 정보 설정 
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-    
+    let tbidVal = "S10010"; 
+
     // 접속횟수 추가 
     totalConnectCnt++; 
 
@@ -51,7 +52,8 @@ app.get('/', (req, res) => {
     res.render("main", {
         title: "Node Home",
         ctime: currTime,
-        totalcnt : totalConnectCnt
+        totalcnt : totalConnectCnt,
+        tbid:tbidVal
     });
     
     console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
