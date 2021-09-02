@@ -65,7 +65,7 @@ sudo npm install
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 # Start all applications
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.js ( for sslserver )
 
 # Stop all
 pm2 stop ecosystem.config.js
