@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="https://code.jquery.com/jquery-2.2.4.min.js"  
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+
+
+    <style>
+
+        body {
+            margin:0;
+            padding:0;
+        }
+
+        .bodyContainerWrap {
+            background:#FFFFFF;
+            text-align:center; 
+        }
+
+
+        .bodyContainer {
+            text-align:center; 
+            margin:0 auto; 
+        }
+
+        .headerTitleWrap {
+            text-align:center;
+            background:#012e5c;
+            padding:10px 0px; 
+        }
+
+        .headerTitle  {
+            width:100%;
+            display:inline-block;
+            color:#FFFFFF; 
+            font-size:22px; 
+            line-height:32px; 
+        }
+ 
+        .footerTitleWrap {
+            text-align:center;
+            background:#012e5c;
+            min-height:48px; 
+            position:fixed;
+            bottom:0;
+            left:0;
+            right:0;
+        }
+
+        .footerTitle  {
+            color:#FFFFFF; 
+            font-size:14px; 
+            margin-top:10px;
+        }
+
+        .headerBelowWrap {
+            margin-top:10px;
+            text-align:center;
+            background:#FFFFFF;
+            height:24px;
+            border-bottom:1px sold #333333; 
+        }
+
+        .headerBelow  {
+            font-size:12px; 
+            color:#7c0432; 
+        }
+
+
+        .positionLeft  {
+            float:left; 
+            margin-left:20px;  
+        }
+
+        .positionRight  {
+            float:right;
+            margin-right:20px;  
+        }
+ 
+ 
+        .viewBoxWrap {
+            display:inline-block;
+        }
+
+        @media screen and (max-width: 768px) {  
+            .viewBoxWrap {
+                width:95%; 
+                margin:20px 0px; 
+            }
+		 }
+
+         @media screen and (min-width: 768px) {  
+            .viewBoxWrap {
+                width:45%; 
+                margin:20px 10px; 
+            }
+		 }
+ 
+        .viewBoxIn {
+            cursor:pointer; 
+            width:100%; 
+            background:#0066cc;
+            border:2px solid #ffffff; 
+            display:inline-block;
+            line-height:38px; 
+        }
+
+        .viewBoxTxt {
+            color:#FFFFFF; 
+            font-size:28px;
+            font-weight:bold; 
+        }
+
+    </style>
+
+    
+</head>
+
+<body>
+
+ 
+ 
+    <div class='bodyContainerWrap' >
+        <div class='bodyContainer' >
+
+            <div class='headerTitleWrap'>
+                <div class="headerTitle" >
+                    <%= title %>
+                </div>
+            </div>
+
+       
+            <div class="headerBelowWrap">
+                <div class="headerBelow positionLeft" >
+                    Version : <%= version %>
+                </div>
+                <div class="headerBelow positionRight" >
+                    접속 : <%= totalcnt %>
+                </div>
+            </div>
+
+
+            <!-- BOX1 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1010" >
+                    <div class='viewBoxText'>
+                        3학년 수학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box1-->
+
+            <!-- BOX2 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1020" >
+                    <div class='viewBoxText'>
+                        3학년 과학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box2 -->
+
+
+            <!-- BOX3 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1030" >
+                    <div class='viewBoxText'>
+                        4학년 수학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box3 -->
+
+            <!-- BOX4 -->
+            <div class='viewBoxWrap'>
+                <div class="viewBoxIn tbSubClass" id="<%= tbid %>1040" >
+                    <div class='viewBoxText'>
+                        4학년 과학 
+                    </div>
+                </div>
+            </div>
+            <!-- EOF Box4 -->
+ 
+
+        </div>
+         <!-- EOF bodyContainer -->
+
+
+         <div class='footerTitleWrap'>
+            <div class="footerTitle" >
+                @SoyStudy 2021
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- EOF bodyContainerWrap-->
+    <script src="localJS/homescript.js" defer></script>
+
+</body>
+
+</html>

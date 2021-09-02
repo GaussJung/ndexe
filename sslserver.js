@@ -5,7 +5,7 @@
 - Version : 1.01 
 - Date : 2021. 09. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버  Port 443 
+- 용도 : SSL 웹서버  Port 443 
 - 기동 : node sslserver.js 
 */ 
 
@@ -44,16 +44,19 @@ app.get('/', (req, res) => {
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10010"; 
+    let titleVal = "산운초등학교 문제은행 접속홈"
+    let versionVal  = "v1.0"; 
 
     // 접속횟수 추가 
     totalConnectCnt++; 
 
     // 렌더링 
-    res.render("main", {
-        title: "Node Home",
+    res.render("home", {
+        title: titleVal,
         ctime: currTime,
         totalcnt : totalConnectCnt,
-        tbid:tbidVal
+        tbid:tbidVal,
+        version : versionVal
     });
     
     console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
