@@ -40,7 +40,9 @@ const corsOptions = {
   
 app.options('*',cors(corsOptions));
 app.use(cors(corsOptions));
-app.use(cors({origin : "https://www.soystudy.com"}));
+// app.use(cors({origin : "https://www.soystudy.com"}));
+app.use(cors({origin : "https://adm.soystudy.com"}));
+
 
   
 // 라이브러리 유틸 
