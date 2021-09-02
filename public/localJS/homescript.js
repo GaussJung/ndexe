@@ -31,12 +31,12 @@ $(function() {
                     
                     moveURL += "?tmcd=" + fdata.outkey;
 
-                    alert("TB1 outkey=" + fdata.outkey + " / moveURL=" + moveURL); 
+                    // console.log("TB1 outkey=" + fdata.outkey); 
 
                     window.location.href = moveURL;
                 }
                 else {
-                    alert("E200. 문제은행 계정접속에 실패하였습니다!"); 
+                    alert("ER-211. 문제은행 계정접속에 실패하였습니다!"); 
                 };
             },
             error: function(xhr, errorString, exception) {   // 에러시에 출력
@@ -55,11 +55,11 @@ $(function() {
         let tbmcd = $(this).attr("id"); 
 
         if ( tbmcd === undefined || tbmcd  === null ) {
-            alert("ER-123 No tbmcd"); 
+            alert("ER-210 No tbmcd"); 
             return false; 
         }
         else {
-            console.log("TM3-B tbmcd=" + tbmcd); 
+            // console.log("TM3-B tbmcd=" + tbmcd); 
             connectTestBank (tbmcd); 
         }; 
     }); 
