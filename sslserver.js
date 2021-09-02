@@ -8,17 +8,20 @@
 - 용도 : 기본 노드 웹서버  Port 443 
 - 기동 : node sslserver.js 
 */ 
+
+let totalConnectCnt = 0;  // 서버 접속 횟수 
  
 const express = require('express');     // 익스프레스 
 const app   = express();                
 const PORT = process.env.PORT = 443;   // 개방포트 
-
-var totalConnectCnt = 0;
+const fs = require('fs');               // 파일처리 (인증서읽기)
+const httpsConnect = require('https');  // 보안접속 
 
 // ============================================== F15. 인증서설정    ==============================================
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/chain.pem', 'utf8');
+ 
 
 const credentials = {
 	key: privateKey,
