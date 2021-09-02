@@ -54,7 +54,7 @@ $(function() {
         
         let tbmcd = $(this).attr("id"); 
 
-        if (tbid === undefined || tbid === null ) {
+        if ( tbmcd === undefined || tbmcd  === null ) {
             alert("ER-123 No tbmcd"); 
             return false; 
         }
