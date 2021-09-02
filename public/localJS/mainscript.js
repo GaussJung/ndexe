@@ -1,7 +1,5 @@
 console.log("S-110 mainscript V1.0");  
- 
-alert("TM Init 1.0"); 
-
+  
 $(function() { 
 	 
     // P1. 테스트 
