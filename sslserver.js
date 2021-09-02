@@ -16,6 +16,7 @@ const app   = express();
 const PORT = process.env.PORT = 443;   // 개방포트 
 const fs = require('fs');               // 파일처리 (인증서읽기)
 const httpsConnect = require('https');  // 보안접속 
+const cors = require('cors');           // 자원공유설정 
 
 // ============================================== F15. 인증서설정    ==============================================
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/privkey.pem', 'utf8');
@@ -29,6 +30,19 @@ const credentials = {
 	ca: ca
 };
 
+// F16. 공유자원설정 
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+  
+app.options('*',cors(corsOptions));
+app.use(cors(corsOptions));
+app.use(cors({origin : "https://www.soystudy.com"}));
+
+  
 // 라이브러리 유틸 
 require('date-utils');                  // 일자/시간 유틸리티 
 
