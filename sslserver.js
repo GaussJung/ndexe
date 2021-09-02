@@ -16,6 +16,8 @@ const app   = express();
 const PORT = process.env.PORT = 443;   // 개방포트 
 const fs = require('fs');               // 파일처리 (인증서읽기)
 const httpsConnect = require('https');  // 보안접속 
+const httpConnect = require('http');    // 일반접속 (not 보안)
+
 const cors = require('cors');           // 자원공유설정 
 
 // ============================================== F15. 인증서설정    ==============================================
@@ -100,6 +102,12 @@ app.get('/user', (req, res) => {
 const httpsServer = httpsConnect.createServer(credentials, app);
  
 httpsServer.listen(443, () => {
-	 console.log('Sanw V1.1 NODE HTTPS Server running on port 443');
+	 console.log('Sanw V1.1  HTTPS Server running on port 443');
 });
 
+// 일반서버 접속 
+const httpServer = httpConnect.createServer(app);
+ 
+httpServer.listen(80, () => {
+	 console.log('Sanw V1.1 HTTP Server running on port 80');
+});
