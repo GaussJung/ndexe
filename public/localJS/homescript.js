@@ -10,7 +10,7 @@ $(function() {
         console.log("TB1 tbid=" + tbmcd); 
 
         // 키접속 및 이동주소 
-        let targetURL = "https:/adm.soystudy.com/comm/auth/authKeyHandler.jsp";  
+        let targetURL = "https://adm.soystudy.com/comm/auth/authKeyHandler.jsp";  
 
         let moveURL = "https://adm.soystudy.com/comm/auth/homeTransfer.jsp";  
 
