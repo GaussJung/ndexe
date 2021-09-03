@@ -61,9 +61,9 @@ app.get('/', (req, res) => {
     // 접속시간 정보 설정 
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-    let tbidVal = "S10010"; 
+    let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
-    let versionVal  = "v1.0"; 
+    let versionVal  = "v1.1"; 
 
     // 접속횟수 추가 
     totalConnectCnt++; 
