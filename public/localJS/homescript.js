@@ -27,7 +27,7 @@ $(function() {
 
                     let inPwd =  prompt("비밀번호를 입력해 주세요!","정보입력"); 
 
-                    if ( inPWd === tmpPwd ) {
+                    if ( inPwd === tmpPwd ) {
                         sessionStorage.setItem("tempAuthValid","PASS"); 
                         $(".viewBoxWrap").show(); 
                     }
