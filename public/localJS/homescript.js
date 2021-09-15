@@ -1,14 +1,13 @@
-console.log("S-110 homescript V1.2");  
+console.log("S-110 homescript V1.32");  
   
 $(function() { 
-  
-
+   
     // S1. 사용자 확인 
     function checkValidUser() { 
 
         let tmpPwd; 
  
-        let targetURL = "https://adm2.soystudy.com/comm/auth/authKeyHandler.jsp";  
+        let targetURL = "https://www.soystudy.com/comm/auth/authKeyHandler.jsp";  
  
         $.ajax({
             url: targetURL,
@@ -76,9 +75,8 @@ $(function() {
 
     // P2-1. 홈접속
     function connectTestBank (tbmcd) {
-
-
-        console.log("TB1 tbid=" + tbmcd); 
+ 
+        // console.log("TB1 tbid=" + tbmcd); 
 
         // 키접속 및 이동주소 
         let targetURL = "https://www.soystudy.com/comm/auth/authKeyHandler.jsp";  
@@ -101,9 +99,7 @@ $(function() {
                 if ( fdata.cupd === true ) {
                     
                     moveURL += "?tmcd=" + fdata.outkey;
-
                     // console.log("TB1 outkey=" + fdata.outkey); 
-
                     window.location.href = moveURL;
                 }
                 else {
