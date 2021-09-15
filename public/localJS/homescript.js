@@ -72,9 +72,9 @@ $(function() {
             $(".viewBoxWrap").show(); 
         }
         else {
-            $("#loginFormWrap").view(); 
-  
-        }; 
+            // 인증미완상태 
+            $("#loginFormWrap").show(); 
+          }; 
     }; 
 
     // 초기접속환경 확인 
@@ -144,7 +144,7 @@ $(function() {
     $("#btnLogin").bind("click", function(event, ui) { 
     
         checkValidUser(); 
-        
+
     }); 
 
     
