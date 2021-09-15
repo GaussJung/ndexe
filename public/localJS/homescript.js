@@ -60,10 +60,10 @@ $(function() {
     function initEnvSet() { 
 
         $(".viewBoxWrap").hide(); 
-
-
+ 
         if ( (typeof sessionStorage.getItem("tempAuthValid") ) !== 'undefined' && sessionStorage.getItem("tempAuthValid") !== null ) {
             // 인증완료상태  
+            $(".viewBoxWrap").show(); 
         }
         else {
             checkValidUser(); 
