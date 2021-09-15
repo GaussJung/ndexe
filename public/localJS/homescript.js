@@ -1,4 +1,4 @@
-console.log("S-110 homescript V1.1");  
+console.log("S-110 homescript V1.2");  
   
 $(function() { 
   
@@ -18,8 +18,7 @@ $(function() {
             cache: false,
             async: true,
             data: {
-                chcode:'getTempPwd',
-                mcd:tbmcd
+                chcode:'getTempPwd'
             },
             success: function(fdata) {
 
