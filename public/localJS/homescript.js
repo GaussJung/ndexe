@@ -1,4 +1,4 @@
-console.log("S-110 homescript V1.32");  
+console.log("S-110 homescript V1.33");  
   
 $(function() { 
    
@@ -37,13 +37,13 @@ $(function() {
     
                     if ( fdata.cupd === true ) {
                         $("#loginFormWrap").hide(); 
+                        $("#btnLogout").show(); 
                         sessionStorage.setItem("tempAuthValid","PASS"); 
                         $(".viewBoxWrap").show(); 
-   
                     }
                     else {
                         sessionStorage.removeItem("tempAuthValid"); 
-                        alert("비밀번호가 일치하지 않습니다!");
+                        alert("ID 혹은 비밀번호가 일치하지 않습니다!");
                         location.reload();   
                     };
                 },
@@ -66,10 +66,12 @@ $(function() {
    
         $(".viewBoxWrap").hide(); 
         $("#loginFormWrap").hide(); 
+        $("#btnLogout").hide(); 
 
         if ( (typeof sessionStorage.getItem("tempAuthValid") ) !== 'undefined' && sessionStorage.getItem("tempAuthValid") !== null ) {
             // 인증완료상태  
             $(".viewBoxWrap").show(); 
+            $("#btnLogout").show(); 
         }
         else {
             // 인증미완상태 
