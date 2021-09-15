@@ -9,7 +9,7 @@ $(function() {
         let tmpPwd; 
         let inPwd; 
  
-        let targetURL = "https://adm.soystudy.com/comm/auth/authKeyHandler.jsp";  
+        let targetURL = "https://adm2.soystudy.com/comm/auth/authKeyHandler.jsp";  
  
         $.ajax({
             url: targetURL,
