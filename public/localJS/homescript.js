@@ -65,6 +65,7 @@ $(function() {
     function initEnvSet() { 
    
         $(".viewBoxWrap").hide(); 
+        $("#loginFormWrap").hide(); 
 
         if ( (typeof sessionStorage.getItem("tempAuthValid") ) !== 'undefined' && sessionStorage.getItem("tempAuthValid") !== null ) {
             // 인증완료상태  
@@ -72,7 +73,7 @@ $(function() {
         }
         else {
             $("#loginFormWrap").view(); 
-            checkValidUser(); 
+  
         }; 
     }; 
 
@@ -137,6 +138,17 @@ $(function() {
             connectTestBank (tbmcd); 
         }; 
     }); 
+
+
+    // P3. 비밀번호 확인 진행 
+    $("#btnLogin").bind("click", function(event, ui) { 
+    
+        checkValidUser(); 
+        
+    }); 
+
+    
+    
 
 });  
 
