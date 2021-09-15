@@ -7,7 +7,6 @@ $(function() {
     function checkValidUser() { 
 
         let tmpPwd; 
-        let inPwd; 
  
         let targetURL = "https://adm2.soystudy.com/comm/auth/authKeyHandler.jsp";  
  
@@ -26,9 +25,9 @@ $(function() {
                     
                     tmpPwd = fdata.tmpPwd; 
 
-                    inPwd =  prompt("비밀번호를 입력해 주세요!","정보입력"); 
+                    let inPwd =  prompt("비밀번호를 입력해 주세요!","정보입력"); 
 
-                    if ( inPWd == tmpPwd ) {
+                    if ( inPWd === tmpPwd ) {
                         sessionStorage.setItem("tempAuthValid","PASS"); 
                         $(".viewBoxWrap").show(); 
                     }
