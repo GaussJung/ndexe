@@ -133,7 +133,7 @@
  
     <div class='bodyContainerWrap' >
 
-        
+
         <div class='bodyContainer' >
 
             <div class='headerTitleWrap'>
@@ -141,6 +141,7 @@
                     <%= title %>
                 </div>
             </div>
+
 
        
             <div class="headerBelowWrap">
@@ -152,6 +153,33 @@
                 </div>
             </div>
 
+
+            
+            <!-- 로그인 창 -->
+            <div id='loginFormWrap' style='text-align:center;'  > 
+
+                <div id='loginForm' style='width:380px;margin:0 auto;' >
+
+                    <div>
+                        <label for="username">■ 사용자ID : </label>
+                        <input type="text" id="userId" name="사용자ID"  value=""  
+                        minlength="4"  maxlength="20" style='width:100%;'  >
+                    </div>
+                    
+                    <div>
+                        <label for="pass">■ 비밀번호 : </label>
+                        <input type="password" id="pwd" name="비밀번호"  value="" 
+                               minlength="8"  maxlength="20" required  style='width:100%;'  >
+                    </div>
+                    
+                    <input id="btnLogin" style='width:80px;float:right;'  type="button"  >확 인</input>
+
+                </div>
+
+            </div>
+
+
+ 
 
             <!-- BOX1 -->
             <div class='viewBoxWrap'>

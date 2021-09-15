@@ -7,48 +7,54 @@ $(function() {
 
         let tmpPwd; 
  
-        let targetURL = "https://www.soystudy.com/comm/auth/authKeyHandler.jsp";  
- 
-        $.ajax({
-            url: targetURL,
-            type:'post',
-            dataType: 'json',
-            cache: false,
-            async: true,
-            data: {
-                chcode:'getTempPwd'
-            },
-            success: function(fdata) {
+        let targetURL = "https://adm2.soystudy.com/comm/auth/authKeyHandler.jsp";  
+        
+        let idVal = $("#userId").val().trim(); 
 
-                if ( fdata.cupd === true ) {
-                    
-                    tmpPwd = fdata.tmpPwd; 
+        let inPwd = $("#pwd").val().trim(); 
 
-                    let inPwd =  prompt("비밀번호를 입력해 주세요!","정보입력"); 
+        if ( idVal.length === 0 || inPwd.length === 0 ) {
 
-                    if ( inPwd === tmpPwd ) {
+            alert("사용자ID 혹은 비밀번호를 확인해 주세요!"); 
+
+            return false; 
+        }
+        else {
+            // 인증값을 확인하여 후속처리 
+
+            $.ajax({
+                url: targetURL,
+                type:'post',
+                dataType: 'json',
+                cache: false,
+                async: true,
+                data: {
+                    chcode:'getTempPwd',
+                    id:idVal,
+                    pwd:inPwd
+                },
+                success: function(fdata) {
+    
+                    if ( fdata.cupd === true ) {
+                        $("#loginFormWrap").hide(); 
                         sessionStorage.setItem("tempAuthValid","PASS"); 
                         $(".viewBoxWrap").show(); 
+   
                     }
                     else {
                         sessionStorage.removeItem("tempAuthValid"); 
                         alert("비밀번호가 일치하지 않습니다!");
-                        location.reload();  
-                    }; 
-
+                        location.reload();   
+                    };
+                },
+                error: function(xhr, errorString, exception) {   // 에러시에 출력
+                    // console.log(xhr.responseText);
+                    // console.log("xhr.status = " + xhr.status+" / errorString = " + errorString+" / exception = " + exception);
                 }
-                else {
-                    alert("접속불가 합니다! 관리자에게 문의바랍니다.");
-                    location.reload();  
-                };
-            },
-            error: function(xhr, errorString, exception) {   // 에러시에 출력
-                // console.log(xhr.responseText);
-                // console.log("xhr.status = " + xhr.status+" / errorString = " + errorString+" / exception = " + exception);
-            }
-    
-        });  
-        // EOF T1-B 
+        
+            });  
+            // EOF T1-B 
+        }; 
  
     }; 
 
@@ -57,14 +63,15 @@ $(function() {
 
     // S2. 초기환경 
     function initEnvSet() { 
-
+   
         $(".viewBoxWrap").hide(); 
- 
+
         if ( (typeof sessionStorage.getItem("tempAuthValid") ) !== 'undefined' && sessionStorage.getItem("tempAuthValid") !== null ) {
             // 인증완료상태  
             $(".viewBoxWrap").show(); 
         }
         else {
+            $("#loginFormWrap").view(); 
             checkValidUser(); 
         }; 
     }; 
