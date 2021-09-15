@@ -7,7 +7,7 @@ $(function() {
 
         let tmpPwd; 
  
-        let targetURL = "https://adm2.soystudy.com/comm/auth/authKeyHandler.jsp";  
+        let targetURL = "https://www.soystudy.com/comm/auth/authKeyHandler.jsp";  
         
         let idVal = $("#userId").val().trim(); 
 
