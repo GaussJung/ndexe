@@ -147,7 +147,14 @@ $(function() {
 
     }); 
 
+    // P4. 로그 아웃 
+    $("#btnLogin").bind("click", function(event, ui) { 
     
+        sessionStorage.removeItem("tempAuthValid"); 
+        location.reload();  
+
+    }); 
+
     
 
 });  
