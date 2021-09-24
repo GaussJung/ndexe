@@ -55,10 +55,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-// ps.1 시작 페이지
-app.get('/', (req, res) => {
+// ps.1-1 시작 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
+app.get('/:actcode', (req, res) => {
 
-    // 접속시간 정보 설정 
+    // 접속시간 정보 설정 a
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
@@ -74,12 +74,15 @@ app.get('/', (req, res) => {
         ctime: currTime,
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
-        version : versionVal
+        version : versionVal,
+        actcode: req.params.actcode
     });
     
-    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
 
 });
+
+ 
 
 
 // ps.20 로컬 페이지 감독자 화면
