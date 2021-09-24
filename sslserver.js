@@ -76,20 +76,20 @@ function connectHome(req, res, actVal) {
         actcode: actVal
     });
   
+    console.log("Connected! V1.5-A WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
 }; 
 
 // ps.1-1 시작 페이지  
 app.get('/', (req, res) => {
     let actVal = ""; 
     connectHome(req, res, actVal); 
-    console.log("Connected! V1.5-A WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
+   
 });
  
 // ps.1-2 로그아웃 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
 app.get('/:actcode', (req, res) => {
     let actVal = req.params.actcode; 
     connectHome(req, res, actVal); 
-    console.log("Connected! V1.5-B WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
 });
 
 
