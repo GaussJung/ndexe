@@ -21,7 +21,6 @@ $(function() {
         }
         else {
             // 인증값을 확인하여 후속처리 
-
             $.ajax({
                 url: targetURL,
                 type:'post',
@@ -57,11 +56,8 @@ $(function() {
         }; 
  
     }; 
-
-
-
-
-    // S2. 초기환경 
+ 
+    // P10. 초기환경 
     function initEnvSet() { 
    
         $(".viewBoxWrap").hide(); 
@@ -76,14 +72,14 @@ $(function() {
         else {
             // 인증미완상태 
             $("#loginFormWrap").show(); 
-          }; 
+        }; 
     }; 
 
     // 초기접속환경 확인 
     initEnvSet(); 
  
 
-    // P2-1. 홈접속
+    // P15. 홈접속
     function connectTestBank (tbmcd) {
  
         // console.log("TB1 tbid=" + tbmcd); 
@@ -126,7 +122,7 @@ $(function() {
          
     }; 
     
-    // P2. 페이지이동 
+    // P21. 페이지이동 
     $(".tbSubClass").bind("click", function(event, ui) { 
         
         let tbmcd = $(this).attr("id"); 
@@ -142,22 +138,28 @@ $(function() {
     }); 
 
 
-    // P3. 비밀번호 확인 진행 
+    // P23. 비밀번호 확인 진행 
     $("#btnLogin").bind("click", function(event, ui) { 
     
         checkValidUser(); 
 
     }); 
 
-    // P4. 로그 아웃 
+    // P24. 로그 아웃 
     $("#btnLogout").bind("click", function(event, ui) { 
     
         sessionStorage.removeItem("tempAuthValid"); 
         location.reload();  
 
     }); 
-
-    
-
+ 
+    // P40. 로그인호출 (엔터)
+    $(".formField").bind("keypress", function(e) {
+        if (e.which == 13)   {  
+            e.preventDefault();  
+            $("#btnLogin").click();
+        };
+    });
+ 
 });  
 
