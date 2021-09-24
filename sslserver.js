@@ -68,6 +68,13 @@ app.get('/:actcode', (req, res) => {
     // 접속횟수 추가 
     totalConnectCnt++; 
 
+    let actVal = ""; 
+
+    if ( req.params.actcode !== null ) {
+        actVal = req.params.actcode; 
+    }; 
+ 
+
     // 렌더링 
     res.render("home", {
         title: titleVal,
@@ -75,10 +82,10 @@ app.get('/:actcode', (req, res) => {
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
         version : versionVal,
-        actcode: req.params.actcode
+        actcode: actVal
     });
     
-    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
+    console.log("Connected! V1.5 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
 
 });
 
