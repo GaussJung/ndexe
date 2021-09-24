@@ -55,25 +55,16 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-// ps.1-1 시작 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
-app.get('/:actcode', (req, res) => {
-
+function connectHome(req, res, actVal) {
     // 접속시간 정보 설정 a
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
     let versionVal  = "v1.1"; 
-
+     
     // 접속횟수 추가 
     totalConnectCnt++; 
-
-    let actVal = ""; 
-
-    if ( req.params.actcode !== null ) {
-        actVal = req.params.actcode; 
-    }; 
- 
 
     // 렌더링 
     res.render("home", {
@@ -84,12 +75,23 @@ app.get('/:actcode', (req, res) => {
         version : versionVal,
         actcode: actVal
     });
-    
-    console.log("Connected! V1.5 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
+  
+}; 
 
+// ps.1-1 시작 페이지  
+app.get('/', (req, res) => {
+    let actVal = ""; 
+    connectHome(req, res, actVal); 
+    console.log("Connected! V1.5-A WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
+});
+ 
+// ps.1-2 로그아웃 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
+app.get('/:actcode', (req, res) => {
+    let actVal = req.params.actcode; 
+    connectHome(req, res, actVal); 
+    console.log("Connected! V1.5-B WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
 });
 
- 
 
 
 // ps.20 로컬 페이지 감독자 화면
