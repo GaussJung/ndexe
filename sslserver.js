@@ -76,7 +76,7 @@ function connectHome(req, res, actVal) {
         actcode: actVal
     });
   
-    console.log("Connected! V1.5-A WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + req.params.actcode); 
+    console.log("Connected! V1.6 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + actVal); 
 }; 
 
 // ps.1-1 시작 페이지  
