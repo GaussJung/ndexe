@@ -4,8 +4,7 @@ $(function() {
    
     let actCodeVal 	= document.getElementById("actcode").value;
 
-    alert("S-111 actCodeVal=" + actCodeVal);  
-
+ 
     // init app 
     if ( actCodeVal === "logout"  ) {
         sessionStorage.removeItem("tempAuthValid"); 
@@ -14,6 +13,7 @@ $(function() {
     }
     else {
         // 서비스 실행 
+        console.log("S-111 actCodeVal=" + actCodeVal);  
         doMainService(); 
     }; 
  
