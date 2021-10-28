@@ -55,26 +55,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-// ps.1 시작 페이지
-app.get('/', (req, res) => {
-
-    // 접속시간 정보 설정 
+function connectHome(req, res, actVal) {
+    // 접속시간 정보 설정 a
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
     let versionVal  = "v1.1"; 
-
-    if( req.secure === false ){
-        // 보안접속이 아닐 경우에 리다이렉트 
-        let moveURL = "https://" + req.headers.host;
-        console.log("C1-A http To moveURL=" + moveURL);
-        return res.redirect(moveURL);
-    }
-    else {
-        console.log("C1-B https host=" + req.headers.host);
-    };
-    
+     
     // 접속횟수 추가 
     totalConnectCnt++; 
 
@@ -84,12 +72,49 @@ app.get('/', (req, res) => {
         ctime: currTime,
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
-        version : versionVal
+        version : versionVal,
+        actcode: actVal
     });
-    
-    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+  
+    console.log("Connected! V1.6 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + actVal); 
+}; 
 
+// ps.1-1 시작 페이지  
+app.get('/', (req, res) => {
+
+    let actVal = ""; 
+    
+    if( req.secure === false ){
+        // 보안접속이 아닐 경우에 리다이렉트 
+        let moveURL = "https://" + req.headers.host;
+        console.log("C1-A http To moveURL=" + moveURL);
+        return res.redirect(moveURL);
+    }
+    else {
+        connectHome(req, res, actVal); 
+        console.log("C1-B https host=" + req.headers.host);
+    };
+ 
 });
+ 
+// ps.1-2 로그아웃 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
+app.get('/:actcode', (req, res) => {
+
+    let actVal = req.params.actcode; 
+
+    if( req.secure === false ){
+        // 보안접속이 아닐 경우에 리다이렉트 
+        let moveURL = "https://" + req.headers.host;
+        console.log("D1-A http To moveURL=" + moveURL);
+        return res.redirect(moveURL);
+    }
+    else {
+        connectHome(req, res, actVal); 
+        console.log("D1-B https host=" + req.headers.host);
+    };
+ 
+});
+
 
 
 // ps.20 로컬 페이지 감독자 화면
@@ -121,3 +146,5 @@ const httpServer = httpConnect.createServer(app);
 httpServer.listen(80, () => {
 	 console.log('Sanw V1.1 HTTP Server running on port 80');
 });
+
+
