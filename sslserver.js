@@ -54,12 +54,67 @@ require('date-utils');                  // 일자/시간 유틸리티
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get("*", (req, res, next) => {
+
+// 웹서버 접속설정
+function setWeb(req,res) {
+ 
+    // ps.1 시작 페이지
+    app.get('/', (req, res) => {
+
+        // 접속시간 정보 설정 
+        let todayDate = new Date(); 
+        let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+        let tbidVal = "S10020"; 
+        let titleVal = "산운초등학교 문제은행 접속홈"
+        let versionVal  = "v1.1"; 
+
+        if (  req.secure == false ) {
+            // 보안접속이 아닐 경우 보안접속으로 요청 
+            res.redirect("https://sanw.soystudy.com"); 
+            return false; 
+        };
+
+        // 접속횟수 추가 
+        totalConnectCnt++; 
+
+        // 렌더링 
+        res.render("home", {
+            title: titleVal,
+            ctime: currTime,
+            totalcnt : totalConnectCnt,
+            tbid:tbidVal,
+            version : versionVal
+        });
+        
+        console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+
+    });
+
+
+    // ps.20 로컬 페이지 감독자 화면
+    app.get('/admin', (req, res) => {
+    res.render('local/admin', {
+        title: "ADMIN"
+    });
+    });
+
+
+    // ps.20 로컬 페이지 감독자 화면
+    app.get('/user', (req, res) => {
+        res.render('local/user', {
+            title: "Welcome"
+        });
+    });
+     
+}; 
+// EOF setWeb
+
+app.get("*", (req, res, setWeb) => {
     console.log("req.secure == " + req.secure);
     
     if( req.secure ){
         // 보안접속으로 전달이 된 상태임. 
-        next();
+        setWeb(req, res);
     }
     else{
         // 일반 접속 (http)을 보안접속으로 전환 
@@ -70,55 +125,7 @@ app.get("*", (req, res, next) => {
     };
 });
  
-// ps.1 시작 페이지
-app.get('/', (req, res) => {
-
-    // 접속시간 정보 설정 
-    let todayDate = new Date(); 
-    let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-    let tbidVal = "S10020"; 
-    let titleVal = "산운초등학교 문제은행 접속홈"
-    let versionVal  = "v1.1"; 
-
-    if (  req.secure == false ) {
-        // 보안접속이 아닐 경우 보안접속으로 요청 
-        res.redirect("https://sanw.soystudy.com"); 
-        return false; 
-    };
-
-    // 접속횟수 추가 
-    totalConnectCnt++; 
-
-    // 렌더링 
-    res.render("home", {
-        title: titleVal,
-        ctime: currTime,
-        totalcnt : totalConnectCnt,
-        tbid:tbidVal,
-        version : versionVal
-    });
-    
-    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
-
-});
-
-
-// ps.20 로컬 페이지 감독자 화면
-app.get('/admin', (req, res) => {
-  res.render('local/admin', {
-      title: "ADMIN"
-  });
-});
-
-
-// ps.20 로컬 페이지 감독자 화면
-app.get('/user', (req, res) => {
-  res.render('local/user', {
-      title: "Welcome"
-  });
-});
  
-
 // 보안접속 서버 생성 
 const httpsServer = httpsConnect.createServer(credentials, app);
  
