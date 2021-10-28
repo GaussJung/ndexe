@@ -61,7 +61,7 @@ function connectHome(req, res, actVal) {
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
-    let versionVal  = "v1.1"; 
+    let versionVal  = "v1.2"; 
      
     // 접속횟수 추가 
     totalConnectCnt++; 
@@ -87,12 +87,12 @@ app.get('/', (req, res) => {
     if( req.secure === false ){
         // 보안접속이 아닐 경우에 리다이렉트 
         let moveURL = "https://" + req.headers.host;
-        console.log("C1-A http To moveURL=" + moveURL);
+        // console.log("C1-A http To moveURL=" + moveURL);
         return res.redirect(moveURL);
     }
     else {
         connectHome(req, res, actVal); 
-        console.log("C1-B https host=" + req.headers.host);
+        // console.log("C1-B https host=" + req.headers.host);
     };
  
 });
@@ -105,12 +105,12 @@ app.get('/:actcode', (req, res) => {
     if( req.secure === false ){
         // 보안접속이 아닐 경우에 리다이렉트 
         let moveURL = "https://" + req.headers.host;
-        console.log("D1-A http To moveURL=" + moveURL);
+        // console.log("D1-A http To moveURL=" + moveURL);
         return res.redirect(moveURL);
     }
     else {
         connectHome(req, res, actVal); 
-        console.log("D1-B https host=" + req.headers.host);
+        // console.log("D1-B https host=" + req.headers.host);
     };
  
 });
