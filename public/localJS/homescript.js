@@ -11,6 +11,11 @@ $(function() {
         location.href = "/";  // 초기 홈으로 이동 
         return false; 
     }
+    else if ( actCodeVal === "logout2"  ) {
+        sessionStorage.removeItem("tempAuthValid"); 
+        location.href = "/test";  // 초기 홈으로 이동 (테스트모드)
+        return false; 
+    }
     else {
         // 서비스 실행 
         console.log("S-111 actCodeVal=" + actCodeVal);  
