@@ -1,4 +1,4 @@
-console.log("S-110 homescript V3.1");  
+console.log("S-110 homescript V3.2");  
   
 $(function() { 
    
@@ -55,7 +55,8 @@ $(function() {
                             $("#loginFormWrap").hide(); 
                             $("#btnLogout").show(); 
                             sessionStorage.setItem("tempAuthValid","PASS"); 
-                            $(".viewBoxWrap").show(); 
+                            //$(".viewBoxWrap").show(); 
+                            $(".viewBoxWrap").css("display","inline-block"); 
                         }
                         else {
                             sessionStorage.removeItem("tempAuthValid"); 
@@ -77,13 +78,14 @@ $(function() {
         // P10. 초기환경 
         function initEnvSet() { 
     
-            $(".viewBoxWrap").hide(); 
+            //$(".viewBoxWrap").hide(); 
             $("#loginFormWrap").hide(); 
             $("#btnLogout").hide(); 
 
             if ( (typeof sessionStorage.getItem("tempAuthValid") ) !== 'undefined' && sessionStorage.getItem("tempAuthValid") !== null ) {
                 // 인증완료상태  
-                $(".viewBoxWrap").show(); 
+                $(".viewBoxWrap").css("display","inline-block"); 
+                //$(".viewBoxWrap").show(); 
                 $("#btnLogout").show(); 
             }
             else {
