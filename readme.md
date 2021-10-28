@@ -1,5 +1,5 @@
 ﻿# node Test simple 
-# ndexe 
+# ndexe v1.4 
 
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  

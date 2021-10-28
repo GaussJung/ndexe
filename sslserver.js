@@ -2,7 +2,7 @@
 
 /*
 - 프로그램 : sslserver.js 
-- Version : 1.01 
+- Version : 1.3
 - Date : 2021. 09. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : SSL 웹서버  Port 443 
