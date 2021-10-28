@@ -2,7 +2,7 @@
 
 /*
 - 프로그램 : sslserver.js 
-- Version : 1.3
+- Version : 1.4
 - Date : 2021. 09. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : SSL 웹서버  Port 443 
@@ -54,15 +54,38 @@ require('date-utils');                  // 일자/시간 유틸리티
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+app.get("*", (req, res, next) => {
+    console.log("req.secure == " + req.secure);
+    
+    if( req.secure ){
+        // 보안접속으로 전달이 된 상태임. 
+        next();
+    }
+    else{
+        // 일반 접속 (http)을 보안접속으로 전환 
+        let moveURL = "https://" + req.headers.host + req.url;
+        console.log("moveURL=" + moveURL);
+        res.redirect(moveURL);
+        return false; 
+    };
+});
+ 
+// ps.1 시작 페이지
+app.get('/', (req, res) => {
 
-function connectHome(req, res, actVal) {
-    // 접속시간 정보 설정 a
+    // 접속시간 정보 설정 
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
     let versionVal  = "v1.1"; 
-     
+
+    if (  req.secure == false ) {
+        // 보안접속이 아닐 경우 보안접속으로 요청 
+        res.redirect("https://sanw.soystudy.com"); 
+        return false; 
+    };
+
     // 접속횟수 추가 
     totalConnectCnt++; 
 
@@ -72,26 +95,12 @@ function connectHome(req, res, actVal) {
         ctime: currTime,
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
-        version : versionVal,
-        actcode: actVal
+        version : versionVal
     });
-  
-    console.log("Connected! V1.6 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + actVal); 
-}; 
+    
+    console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
 
-// ps.1-1 시작 페이지  
-app.get('/', (req, res) => {
-    let actVal = ""; 
-    connectHome(req, res, actVal); 
-   
 });
- 
-// ps.1-2 로그아웃 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
-app.get('/:actcode', (req, res) => {
-    let actVal = req.params.actcode; 
-    connectHome(req, res, actVal); 
-});
-
 
 
 // ps.20 로컬 페이지 감독자 화면
