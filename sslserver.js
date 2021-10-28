@@ -42,8 +42,8 @@ const corsOptions = {
   
 app.options('*',cors(corsOptions));
 app.use(cors(corsOptions));
-// app.use(cors({origin : "https://www.soystudy.com"}));
-app.use(cors({origin : "https://adm.soystudy.com"}));
+app.use(cors({origin : "https://www.soystudy.com"}));
+// app.use(cors({origin : "https://adm.soystudy.com"}));
 
 
   
@@ -54,7 +54,7 @@ require('date-utils');                  // 일자/시간 유틸리티
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-
+// 홈접속 기본 
 function connectHome(req, res, actVal) {
     // 접속시간 정보 설정 a
     let todayDate = new Date(); 
@@ -79,6 +79,33 @@ function connectHome(req, res, actVal) {
     console.log("Connected! V1.6 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + actVal); 
 }; 
 
+
+
+// 홈접속 Pilot
+function connectHomeTest(req, res, actVal) {
+    // 접속시간 정보 설정 a
+    let todayDate = new Date(); 
+    let currTime  = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+    let tbidVal     = "S10010"; 
+    let titleVal    = " >>> 소이초등학교 문제은행 접속홈 <<<"
+    let versionVal  = "v0.5"; 
+     
+    // 접속횟수 추가 
+    totalConnectCnt++; 
+
+    // 렌더링 
+    res.render("home", {
+        title: titleVal,
+        ctime: currTime,
+        totalcnt : totalConnectCnt,
+        tbid:tbidVal,
+        version : versionVal,
+        actcode: actVal
+    });
+  
+    console.log("H2 Connected! V1.6 WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / actcode=" + actVal); 
+}; 
+ 
 // ps.1-1 시작 페이지  
 app.get('/', (req, res) => {
 
@@ -97,6 +124,26 @@ app.get('/', (req, res) => {
  
 });
  
+
+// ps.1-1 test 시작 페이지  
+app.get('/test', (req, res) => {
+
+    let actVal = ""; 
+    
+    if( req.secure === false ){
+        // 보안접속이 아닐 경우에 리다이렉트 
+        let moveURL = "https://" + req.headers.host;
+        // console.log("C1-A http To moveURL=" + moveURL);
+        return res.redirect(moveURL);
+    }
+    else {
+        connectHomeTest(req, res, actVal); 
+        // console.log("C1-B https host=" + req.headers.host);
+    };
+ 
+});
+
+
 // ps.1-2 로그아웃 페이지 ( actcode에 logout 이 올 경우 로그아웃 진행 )
 app.get('/:actcode', (req, res) => {
 

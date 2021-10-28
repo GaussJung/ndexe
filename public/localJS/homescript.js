@@ -159,9 +159,7 @@ $(function() {
 
         // P23. 비밀번호 확인 진행 
         $("#btnLogin").bind("click", function(event, ui) { 
-        
             checkValidUser(); 
-
         }); 
 
         // P24. 로그 아웃 
