@@ -62,7 +62,8 @@ function connectHome(req, res, actVal) {
     let tbidVal = "S10020"; 
     let titleVal = "산운초등학교 문제은행 접속홈"
     let versionVal  = "v1.2"; 
-     
+    let backColor   = "#012e5c"; 
+
     // 접속횟수 추가 
     totalConnectCnt++; 
 
@@ -73,6 +74,7 @@ function connectHome(req, res, actVal) {
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
         version : versionVal,
+        bgcolor: backColor,
         actcode: actVal
     });
   
@@ -89,6 +91,7 @@ function connectHomeTest(req, res, actVal) {
     let tbidVal     = "S10010"; 
     let titleVal    = " >> 소이초등학교 문제은행 접속홈 <<"
     let versionVal  = "V0.9"; 
+    let backColor   = "#f340bd";
      
     // 접속횟수 추가 
     totalConnectCnt++; 
@@ -100,6 +103,7 @@ function connectHomeTest(req, res, actVal) {
         totalcnt : totalConnectCnt,
         tbid:tbidVal,
         version : versionVal,
+        bgcolor: backColor,
         actcode: actVal
     });
   
