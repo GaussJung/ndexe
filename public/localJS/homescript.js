@@ -3,7 +3,9 @@ console.log("S-110 homescript V3.2");
 $(function() { 
    
     let actCodeVal 	= document.getElementById("actcode").value;
+    let tbidVal 	= document.getElementById("tbid").value;
 
+    console.log("S-111 actCodeVal=" + actCodeVal + " / tbid=" + tbidVal); 
  
     // init app 
     if ( actCodeVal === "logout"  ) {
@@ -52,7 +54,8 @@ $(function() {
                     data: {
                         chcode:'getTempPwd',
                         id:idVal,
-                        pwd:inPwd
+                        pwd:inPwd,
+                        tbid:tbidVal
                     },
                     success: function(fdata) {
         

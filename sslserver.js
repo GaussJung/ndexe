@@ -87,8 +87,8 @@ function connectHomeTest(req, res, actVal) {
     let todayDate = new Date(); 
     let currTime  = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal     = "S10010"; 
-    let titleVal    = " >>> 소이초등학교 문제은행 접속홈 <<<"
-    let versionVal  = "v0.5"; 
+    let titleVal    = " >> 소이초등학교 문제은행 접속홈 <<"
+    let versionVal  = "V0.0"; 
      
     // 접속횟수 추가 
     totalConnectCnt++; 
