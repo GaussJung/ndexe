@@ -46,7 +46,7 @@ sudo npm install
 5. 기본 접속 
   cd ~/ndexe
 
-- 기동      
+6. 기동      
   1) 개발모드  : 아래중 한가지    
   sudo node server.js ( 80번 포트 )   
   sudo node server3000.js ( 3000번 포트 )   
@@ -62,26 +62,30 @@ sudo npm install
 
   ※ PM2기본 설정파일 :  ecosystem.config.js   
 
-  3) 종료 ( 기동중인 모든 Node종료 )         
+7. 종료 ( 기동중인 모든 Node종료 )         
   sudo killall node     
    
-## 환경설정에 따른 기동 정지 
+# 환경설정에 따른 기동 정지 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 - Start all applications  
-pm2 start ecosystem.config.js  
+sudo pm2 start ecosystem.config.js  
 
 - Stop all  
-pm2 stop ecosystem.config.js
+sudo pm2 stop ecosystem.config.js
 
 - Restart all   
-pm2 restart ecosystem.config.js
+sudo pm2 restart ecosystem.config.js
 
 - Reload all  
-pm2 reload ecosystem.config.js
+sudo pm2 reload ecosystem.config.js
 
 - Delete all  
-pm2 delete ecosystem.config.js 
+sudo pm2 delete ecosystem.config.js 
+
+- 로그보기
+sudo pm2 logs 서비스명  
+( ex : sudo pm2 logs ndmulti )
 
 6. 동작확인   
 http://도메인  or http://IP 
