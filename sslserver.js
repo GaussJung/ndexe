@@ -9,6 +9,7 @@
 - 기동1 : sudo node sslserver.js 
 - 기동2 : sudo npm start sslserver.js 
 - 기동3 : sudo pm2 start ecosystem.config_ssl.js
+- 확인 : https://서버IP   or https://서버DNS 
 */ 
 
 let totalConnectCnt = 0;  // 서버 접속 횟수 

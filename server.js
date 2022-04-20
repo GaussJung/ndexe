@@ -9,6 +9,7 @@
 - 기동1 : sudo node server.js 
 - 기동2 : sudo npm start server.js  
 - 기동3 : sudo pm2 start ecosystem.config.js
+- 확인 : http://서버IP   or http://서버DNS 
 */ 
  
 const express = require('express');     // 익스프레스 

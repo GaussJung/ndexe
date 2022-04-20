@@ -9,6 +9,7 @@
 - 기동1 : sudo node server3000.js 
 - 기동2 : sudo npm start server3000.js  
 - 기동3 : sudo pm2 start ecosystem.config_3000.js
+- 확인 : http://서버IP:3000 or http://서버DNS:3000
 */ 
  
 const express = require('express');     // 익스프레스 
