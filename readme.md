@@ -61,6 +61,7 @@ sudo npm install
   sudo pm2 start ecosystem_ssl.config.js   
 
   ※ PM2기본 설정파일 :  ecosystem.config.js   
+  ※ 두개의 포트를 돌릴수 있음. (명령어 2회)
 
 7. 종료 ( 기동중인 모든 Node종료 )         
   sudo killall node     
@@ -84,8 +85,9 @@ sudo pm2 reload ecosystem.config.js
 sudo pm2 delete ecosystem.config.js 
 
 - 로그보기
-sudo pm2 logs 서비스명  
-( ex : sudo pm2 logs ndmulti )
+(전체로그) sudo pm2 logs    
+(특정서비스로그) sudo pm2 logs 서비스명     
+( ex : sudo pm2 logs ndmulti )    
 
 6. 동작확인   
 http://도메인  or http://IP 
