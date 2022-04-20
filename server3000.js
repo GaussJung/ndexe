@@ -7,8 +7,7 @@
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : 기본 노드 웹서버 Port : 3000  
 - 기동1 : sudo node server3000.js 
-- 기동2 : sudo npm start server3000.js  
-- 기동3 : sudo pm2 start ecosystem.config_3000.js
+- 기동2 : sudo pm2 start ecosystem.config_3000.js
 - 확인 : http://서버IP:3000 or http://서버DNS:3000
 */ 
  

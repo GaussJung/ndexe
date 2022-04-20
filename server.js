@@ -7,8 +7,7 @@
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : 기본 노드 웹서버 Port : 80  
 - 기동1 : sudo node server.js 
-- 기동2 : sudo npm start server.js  
-- 기동3 : sudo pm2 start ecosystem.config.js
+- 기동2 : sudo pm2 start ecosystem.config.js
 - 확인 : http://서버IP   or http://서버DNS 
 */ 
  
