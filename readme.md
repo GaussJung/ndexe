@@ -47,12 +47,12 @@ sudo npm install
   cd ~/ndexe
 
 6. 기동      
-  1) 개발모드  : 아래중 한가지    
+  A. 개발모드  : 아래중 한가지    
   sudo node server.js ( 80번 포트 )   
   sudo node server3000.js ( 3000번 포트 )   
   sudo node sslserver.js  ( SSL적용 )   
 
-  2) 운영모드  : 아래중 한가지 
+  B. 운영모드  : 아래중 한가지 
   - 기본80접속  
   sudo pm2 start ecosystem.config.js   
   - 3000번포트 접속     
