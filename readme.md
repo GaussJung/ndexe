@@ -47,23 +47,23 @@ sudo npm install
   cd ~/ndexe
 
 - 기동      
-  1) 개발모드  : 아래중 한가지 명령 
-  sudo node server.js ( 80번 포트 ) 
-  sudo node server3000.js ( 3000번 포트 ) 
-  sudo node sslserver.js  ( SSL적용 ) 
+  1) 개발모드  : 아래중 한가지 명령   
+  sudo node server.js ( 80번 포트 )   
+  sudo node server3000.js ( 3000번 포트 )   
+  sudo node sslserver.js  ( SSL적용 )   
 
   2_1) 운영모드 기본
-  - 기본80접속 
-  sudo pm2 start ecosystem.config.js  
-  - 3000번포트 접속   
-  sudo pm2 start ecosystem_3000.config.js 
-  - SSL접속   
-  sudo pm2 start ecosystem_ssl.config.js  
-  ※ 서버기동중인 모든 Node종료 
-  sudo killall node  
+  - 기본80접속  
+  sudo pm2 start ecosystem.config.js   
+  - 3000번포트 접속     
+  sudo pm2 start ecosystem_3000.config.js   
+  - SSL접속     
+  sudo pm2 start ecosystem_ssl.config.js   
+
+  ※ 서버기동중인 모든 Node종료    
+  sudo killall node     
    
-  ※ PM2설정파일 
-  ecosystem.config.js 
+  ※ PM2기본 설정파일 :  ecosystem.config.js   
 
 ## 환경설정에 따른 기동 정지 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
@@ -74,7 +74,7 @@ pm2 start ecosystem.config.js
 - Stop all  
 pm2 stop ecosystem.config.js
 
-- Restart all 
+- Restart all   
 pm2 restart ecosystem.config.js
 
 - Reload all  
@@ -83,6 +83,6 @@ pm2 reload ecosystem.config.js
 - Delete all  
 pm2 delete ecosystem.config.js 
 
-6. 동작확인 
+6. 동작확인   
 http://도메인  or http://IP 
   
