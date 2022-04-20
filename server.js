@@ -6,7 +6,7 @@
 - Date : 2021. 04. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : 기본 노드 웹서버  Port 3000 
-- 기동 : node server.js 
+- 기동 :  sudo node server.js
 */ 
  
 const express = require('express');     // 익스프레스 

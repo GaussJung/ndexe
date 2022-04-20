@@ -64,22 +64,22 @@ sudo npm install
 ## 환경설정에 따른 기동 정지 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
-# Start all applications
-pm2 start ecosystem.config.js ( for sslserver )
+- Start all applications
+pm2 start ecosystem.config.js  
 
-# Stop all
+- Stop all
 pm2 stop ecosystem.config.js
 
-# Restart all
+- Restart all
 pm2 restart ecosystem.config.js
 
-# Reload all
+- Reload all
 pm2 reload ecosystem.config.js
 
-# Delete all
+- Delete all
 pm2 delete ecosystem.config.js 
 
 6. 동작확인 
 
-http://도메인:3000 or IP:3000/  
+http://도메인  or http://IP 
   
