@@ -47,12 +47,12 @@ sudo npm install
   cd ~/ndexe
 
 - 기동      
-  1) 개발모드  : 아래중 한가지 명령   
+  1) 개발모드  : 아래중 한가지    
   sudo node server.js ( 80번 포트 )   
   sudo node server3000.js ( 3000번 포트 )   
   sudo node sslserver.js  ( SSL적용 )   
 
-  2_1) 운영모드 기본
+  2) 운영모드  : 아래중 한가지 
   - 기본80접속  
   sudo pm2 start ecosystem.config.js   
   - 3000번포트 접속     
@@ -60,11 +60,11 @@ sudo npm install
   - SSL접속     
   sudo pm2 start ecosystem_ssl.config.js   
 
-  ※ 서버기동중인 모든 Node종료    
-  sudo killall node     
-   
   ※ PM2기본 설정파일 :  ecosystem.config.js   
 
+  3) 종료 ( 기동중인 모든 Node종료 )         
+  sudo killall node     
+   
 ## 환경설정에 따른 기동 정지 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
