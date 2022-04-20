@@ -48,9 +48,9 @@ sudo npm install
 
 - 기동     
   1) 개발모드(http to localhost) 
-  sudo npm server.js
+  sudo npm server80.js
   or 
-  sudo node server.js 
+  sudo node server80.js 
 
   2_1) 운영모드 기본
   sudo pm2 start ecosystem.config.js
@@ -64,22 +64,21 @@ sudo npm install
 ## 환경설정에 따른 기동 정지 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
-- Start all applications
+- Start all applications  
 pm2 start ecosystem.config.js  
 
-- Stop all
+- Stop all  
 pm2 stop ecosystem.config.js
 
-- Restart all
+- Restart all 
 pm2 restart ecosystem.config.js
 
-- Reload all
+- Reload all  
 pm2 reload ecosystem.config.js
 
-- Delete all
+- Delete all  
 pm2 delete ecosystem.config.js 
 
 6. 동작확인 
-
 http://도메인  or http://IP 
   

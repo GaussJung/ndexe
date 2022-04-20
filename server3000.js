@@ -1,18 +1,19 @@
 ﻿
 
 /*
-- 프로그램 : server80.js 
+- 프로그램 : server3000.js 
 - Version : 1.51 
 - Date : 2021. 04. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버 Port : 80  
-- 기동1 : sudo node server80.js 
-- 기동2 : sudo pm2 start ecosystem.config.js
+- 용도 : 기본 노드 웹서버 Port : 3000  
+- 기동1 : sudo node server3000.js 
+- 기동2 : sudo npm start server3000.js  
+- 기동3 : sudo pm2 start ecosystem.config_3000.js
 */ 
  
 const express = require('express');     // 익스프레스 
 const app   = express();                
-const PORT = process.env.PORT = 80;    // 개방포트 
+const PORT = process.env.PORT = 3000;   // 개방포트 
 
 var totalConnectCnt = 0;
 
@@ -35,7 +36,7 @@ app.get('/', (req, res) => {
   totalConnectCnt++; 
 
   // 렌더링 
-  res.render("main", {
+  res.render("main3000", {
       title: "Node Home",
       ctime: currTime,
       totalcnt : totalConnectCnt
@@ -63,5 +64,5 @@ app.get('/user', (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log('Node WebServer V1.51 is running at:', PORT);
+  console.log('Node WebServer V1.52 is running at:', PORT);
 });

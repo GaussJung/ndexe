@@ -2,11 +2,13 @@
 
 /*
 - 프로그램 : sslserver.js 
-- Version : 1.01 
+- Version : 1.53 
 - Date : 2021. 09. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : SSL 웹서버  Port 443 
-- 기동 : node sslserver.js 
+- 기동1 : sudo node sslserver.js 
+- 기동2 : sudo npm start sslserver.js 
+- 기동3 : sudo pm2 start ecosystem.config_ssl.js
 */ 
 
 let totalConnectCnt = 0;  // 서버 접속 횟수 
