@@ -65,8 +65,12 @@ sudo npm install
 
 7. 종료 ( 기동중인 모든 Node종료 )         
   sudo killall node     
-   
-# 환경설정에 따른 기동 정지 
+
+8. 동작확인   
+http://도메인  or http://IP 
+https://도메인 ( SSL접속 )
+
+9. PM2 환경설정 명령어 
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 - Start all applications  
@@ -89,6 +93,3 @@ sudo pm2 delete ecosystem.config.js
 (특정서비스로그) sudo pm2 logs 서비스명     
 ( ex : sudo pm2 logs ndmulti )    
 
-6. 동작확인   
-http://도메인  or http://IP 
-  
