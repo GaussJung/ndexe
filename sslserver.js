@@ -7,7 +7,7 @@
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : SSL 웹서버  Port 443 
 - 기동1 : sudo node sslserver.js 
-- 기동2 : sudo pm2 start ecosystem.config_ssl.js
+- 기동2 : sudo pm2 start ecosystem_ssl.config.js
 - 확인 : https://서버IP   or https://서버DNS 
 */ 
 

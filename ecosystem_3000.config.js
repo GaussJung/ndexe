@@ -1,8 +1,9 @@
 ﻿module.exports = {
     apps: [{
-        name: 'ndmulti',
+        name: 'ndmulti3000',
         script: './server3000.js',
         instances: 0,
-        exec_mode: 'fork'
+        exec_mode: 'cluster',
+        merge_logs: true
     }]
 }
