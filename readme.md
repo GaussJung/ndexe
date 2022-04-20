@@ -30,7 +30,8 @@ sudo npm install -g express
 sudo npm install pm2 -g
  
 - 설치확인
- nodejs -v    > v14.15.3  --> v14.16.0 (2021. 03. 25 )  
+ node -v    
+v14.19.1 (2022. 04. 21)  
 
  
 4. 소스복제 
@@ -93,3 +94,19 @@ sudo pm2 delete ecosystem.config.js
 (특정서비스로그) sudo pm2 logs 서비스명     
 ( ex : sudo pm2 logs ndmulti )    
 
+#. 자동부팅 ( 80포트 + 3000번포트 )
+: as ubuntu 
+sudo pm2 start ecosystem.config.js
+sudo pm2 start ecosystem_3000.config.js 
+
+pm2 startup     
+(출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
+ex)  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+
+sudo pm2 save
+sudo reboot -i 
+재부팅후에 서비스 바로 올라오는지 확인  ( sudo reboot -i)
+
+#. 자동부팅 해제 
+pm2 unstartup systemd
+ 
