@@ -1,6 +1,6 @@
 ﻿module.exports = {
     apps: [{
-        name: 'ndmulti',
+        name: 'ndmultiSSL',
         script: './sslserver.js',
         instances: 0,
         exec_mode: 'cluster',
