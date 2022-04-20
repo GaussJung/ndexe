@@ -9,6 +9,31 @@
 - 기동1 : sudo node sslserver.js 
 - 기동2 : sudo pm2 start ecosystem_ssl.config.js
 - 확인 : https://서버IP   or https://서버DNS 
+- pm2는 root로 기동 ( sudo su ) 
+- 일반 사용자 기동시 문제발행  ( Error: bind EACCES null:443 )
+https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/#allow-pm2-to-bind-applications-on-ports-80-443-without-root
+
+1) authbind설치 ( 80번 포트 혹은 443포트 )
+sudo apt-get install authbind
+sudo touch /etc/authbind/byport/443
+sudo chown %user% /etc/authbind/byport/443
+( 예시 : sudo chown ubuntu /etc/authbind/byport/443 )
+sudo chmod 755 /etc/authbind/byport/443
+
+2) 별칭설정 
+~/.bashrc
+아래 한줄 끝에 추가 
++alias pm2='authbind --deep pm2'
+
+3) 명령어갱신 
+authbind --deep pm2 update
+
+- SSL 읽기 오류 
+https://localcoder.org/lets-encrypt-ssl-couldnt-start-by-error-eacces-permission-denied-open-et 
+(가장쉬운방법)
+$ sudo chmod +x /etc/letsencrypt/live
+$ sudo chmod +x /etc/letsencrypt/archive
+
 */ 
 
 let totalConnectCnt = 0;  // 서버 접속 횟수 

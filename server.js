@@ -9,6 +9,26 @@
 - 기동1 : sudo node server.js 
 - 기동2 : sudo pm2 start ecosystem.config.js
 - 확인 : http://서버IP   or http://서버DNS 
+- pm2는 root로 기동 ( sudo su )   
+- 일반 사용자 기동시 문제발행  ( Error: bind EACCES null:80)
+https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/#allow-pm2-to-bind-applications-on-ports-80-443-without-root
+
+1) authbind설치 ( 80번 포트 )
+sudo apt-get install authbind
+sudo touch /etc/authbind/byport/80
+sudo chown %user% /etc/authbind/byport/80
+( 예시 : sudo chown ubuntu /etc/authbind/byport/80 )
+sudo chmod 755 /etc/authbind/byport/80
+
+2) 별칭설정 
+~/.bashrc
+아래 한줄 끝에 추가 
++alias pm2='authbind --deep pm2'
+
+3) 명령어갱신 
+authbind --deep pm2 update
+
+
 */ 
  
 const express = require('express');     // 익스프레스 
