@@ -7,7 +7,7 @@
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 : SSL 웹서버  Port 443 
 - 기동1 : sudo node sslserver.js 
-- 기동2 : sudo pm2 start ecosystem_ssl.config.js
+- 기동2 : ( 선수행 sudo su  ) pm2 start ecosystem_ssl.config.js
 - 확인 : https://서버IP   or https://서버DNS 
 - pm2는 root로 기동 ( sudo su ) 
 - 일반 사용자 기동시 문제발행  ( Error: bind EACCES null:443 )

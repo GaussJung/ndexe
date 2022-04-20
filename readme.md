@@ -1,5 +1,5 @@
-﻿# node Test simple 
-# ndexe v1.4 
+﻿# Node Basic App
+# ndexe v1.75 
 
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -26,7 +26,7 @@ sudo apt-get install -y nodejs
 - 익스프레스 설치
 sudo npm install -g express
  
- - 프로세스 관리도구 PM2설치 
+- 프로세스 관리도구 PM2설치 
 sudo npm install pm2 -g
  
 - 설치확인
@@ -48,21 +48,21 @@ sudo npm install
   cd ~/ndexe
 
 6. 기동      
-  A. 개발모드  : 아래중 한가지    
-  sudo node server.js ( 80번 포트 )   
-  sudo node server3000.js ( 3000번 포트 )   
-  sudo node sslserver.js  ( SSL적용 )   
+    A. 개발모드  : 아래중 한가지    
+      sudo node server.js ( 80번 포트 )   
+      sudo node server3000.js ( 3000번 포트 )   
+      sudo node sslserver.js  ( SSL적용 )   
 
-  B. 운영모드  : 아래중 한가지 
-  - 기본80접속  
-  sudo pm2 start ecosystem.config.js   
-  - 3000번포트 접속     
-  sudo pm2 start ecosystem_3000.config.js   
-  - SSL접속     
-  sudo pm2 start ecosystem_ssl.config.js   
+    B. 운영모드  : 아래중 한가지 
+    - 기본80접속  
+      sudo pm2 start ecosystem.config.js   
+    - 3000번포트 접속     
+      sudo pm2 start ecosystem_3000.config.js   
+    - SSL접속     
+      sudo pm2 start ecosystem_ssl.config.js   
 
-  ※ PM2기본 설정파일 :  ecosystem.config.js   
-  ※ 두개의 포트를 돌릴수 있음. (명령어 2회)
+    ※ PM2기본 설정파일 :  ecosystem.config.js   
+    ※ 두개의 포트를 돌릴수 있음. (명령어 2회)
 
 7. 종료 ( 기동중인 모든 Node종료 )         
   sudo killall node     
