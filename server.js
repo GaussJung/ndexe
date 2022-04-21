@@ -28,7 +28,6 @@ sudo chmod 755 /etc/authbind/byport/80
 3) 명령어갱신 
 authbind --deep pm2 update
 
-
 */ 
  
 const express = require('express');     // 익스프레스 
