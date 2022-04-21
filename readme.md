@@ -42,7 +42,7 @@ cd ~
 
 - 라이브러리 설치     
 cd ~/ndexe    
-sudo npm install      
+npm install      
  
 5. 기본 접속 
   cd ~/ndexe
