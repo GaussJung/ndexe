@@ -5,7 +5,7 @@
 - Version : 2.02 
 - Date : 2022. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 :  S3테스트 기본 노드 웹서버 Port : 8000  
+- 용도 :  S3테스트 기본 노드 웹서버 Port : 8010  
 - 기동1 : sudo node server8010.js 
 - 기동2 : sudo pm2 start ecosystem_8000.config.js
 - 확인 : http://서버IP:8010 or http://서버DNS:8010
