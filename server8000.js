@@ -1,11 +1,11 @@
 ﻿
 
 /*
-- 프로그램 : server3000.js 
+- 프로그램 : server8000.js 
 - Version : 2.01 
 - Date : 2022. 04. 01  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버 Port : 3000  
+- 용도 : 기본 노드 웹서버 Port : 8000  
 - 기동1 : sudo node server8000.js 
 - 기동2 : sudo pm2 start ecosystem_8000.config.js
 - 확인 : http://서버IP:8000 or http://서버DNS:8000

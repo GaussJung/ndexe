@@ -1,14 +1,14 @@
 ﻿
 
 /*
-- 프로그램 : server3000.js 
-- Version : 2.01 
-- Date : 2022. 04. 01  
+- 프로그램 : server8010.js 
+- Version : 2.02 
+- Date : 2022. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버 Port : 3000  
-- 기동1 : sudo node server8000.js 
+- 용도 :  S3테스트 기본 노드 웹서버 Port : 8000  
+- 기동1 : sudo node server8010.js 
 - 기동2 : sudo pm2 start ecosystem_8000.config.js
-- 확인 : http://서버IP:8000 or http://서버DNS:8000
+- 확인 : http://서버IP:8000 or http://서버DNS:8010
 */ 
  
 const express = require('express');     // 익스프레스 
@@ -36,18 +36,32 @@ app.get('/', (req, res) => {
   totalConnectCnt++; 
 
   // 렌더링 
-  res.render("main8000", {
-      title: "Service Home",
+  res.render("aws8010", {
+      title: "AWS API TEST Home",
       ctime: currTime,
       totalcnt : totalConnectCnt
   });
  
-  console.log("Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+  console.log("AWS API TEST WebPage Time=" + currTime + " / Count=" + totalConnectCnt); 
 
 });
 
+// ps.10 S3 테스트 
+app.get('/awsS3', (req, res) => {
+  res.render('local/aws_s3', {
+      title: "AWS S3 Test"
+  });
+});
+
  
+// ps.20 EC2 테스트 
+app.get('/awsEC2', (req, res) => {
+  res.render('local/aws_ec2', {
+      title: "AWS EC2 Test"
+  });
+});
+
 
 app.listen(PORT, () => {
-  console.log('Node + Nginx WebServer V2.01 is running at:', PORT);
+  console.log('AWS API WebServer V2.02 is running at:', PORT);
 });
