@@ -179,7 +179,7 @@ function viewAlbum(albumParamName) {
         // EOF photos
 
         let message = photos.length
-          ? "<p>Click on the X to delete the photo</p>"
+          ? "<p>Click on the <span class='iconClass' >X</span> to delete the photo</p>"
           : "<p>You do not have any photos in this album. Please add photos.</p>";
 
         let htmlTemplate = [
