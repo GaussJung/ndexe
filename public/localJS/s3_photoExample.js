@@ -28,7 +28,9 @@ function listAlbums() {
         // if T1-1. 리스트확인  
         if (err) {
             // T1-1A. 오류 
-            return alert("There was an error listing your albums: " + err.message);
+             alert("E0. There was an error listing your albums : " + err.message );
+             history.go(-1); 
+             return false; 
         }
         else {
             // T1-1B. 정상적으로 S3내의 객체 호출이 진행됨. 
