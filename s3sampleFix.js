@@ -30,27 +30,31 @@
 var AWS = require('aws-sdk');
 var uuid = require('uuid');
 
-// 기존에 생성된 버킷명 지정 
+// 기존에 생성된 버킷명 지정 (만들어진 버킷 2022.03 )
 var bucketName = "data.nuriblock.com"; //  'soma-node-sdk-sample-' + uuid.v4();
 // Create name for uploaded object key
 var keyName = '/temp/hello_world.txt';
 
 // Create a promise on S3 service object
 // var bucketPromise = new AWS.S3({apiVersion: '2006-03-01'}).createBucket({Bucket: bucketName}).promise();
+ 
 
-// Handle promise fulfilled/rejected states
-bucketPromise.then(
-  function(data) {
-    // Create params for putObject call
+try {
+    
     let objectParams = {Bucket: bucketName, Key: keyName, Body: 'Nice To S3 World'};
+    
     // Create object upload promise
     let uploadPromise = new AWS.S3({apiVersion: '2006-03-01'}).putObject(objectParams).promise();
+
     uploadPromise.then(
-      function(data) {
-        console.log("SampleFix Successfully uploaded data to " + bucketName + "/" + keyName);
-      });
-}).catch(
-  function(err) {
-    console.error(err, err.stack);
-});
+        function(data) {
+            console.log("SampleFix Successfully uploaded data to " + bucketName + "/" + keyName);
+        }
+    );
+}
+catch (err) {  
+      console.error(err, err.stack);
+} 
+
+ 
 // snippet-end:[GettingStarted.JavaScript.NodeJS.getStarted]
