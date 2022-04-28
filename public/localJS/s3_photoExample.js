@@ -148,7 +148,8 @@ function viewAlbum(albumParamName) {
         // 'this' references the AWS.Response instance that represents the response
         let href = this.request.httpRequest.endpoint.href;
         let bucketUrl = href + albumBucketName + "/";
-
+        
+        // 사진출력 
         let photos = data.Contents.map(function(photo) {
 
             let photoKey = photo.Key;
