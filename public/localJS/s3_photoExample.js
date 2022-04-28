@@ -166,7 +166,7 @@ function viewAlbum(albumParamName) {
                       "','" +
                       photoKey +
                       "')\">",
-                      "X",
+                      "<span class=iconClass>X</span>",
                       "</span>",
                       "<span>",
                       photoKey.replace(albumPhotosKey, ""),
