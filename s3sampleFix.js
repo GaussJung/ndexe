@@ -33,7 +33,7 @@ var uuid = require('uuid');
 // 기존에 생성된 버킷명 지정 (만들어진 버킷 2022.03 )
 var bucketName = "data.nuriblock.com"; //  'soma-node-sdk-sample-' + uuid.v4();
 // Create name for uploaded object key
-var keyName = '/tmp/hello_world.txt';
+var keyName = 'tmp/hello_world.txt';
 
 // Create a promise on S3 service object
 // var bucketPromise = new AWS.S3({apiVersion: '2006-03-01'}).createBucket({Bucket: bucketName}).promise();
