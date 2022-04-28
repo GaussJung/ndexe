@@ -157,7 +157,7 @@ function viewAlbum(albumParamName) {
             return getHtml([
                 "<span>",
                     "<div>",
-                        '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
+                        '<img style="width:512px;height:auto;" src="' + photoUrl + '"/>',
                     "</div>",
                     "<div>",
                       "<span onclick=\"deletePhoto('" +
