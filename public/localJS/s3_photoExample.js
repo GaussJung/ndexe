@@ -190,7 +190,7 @@ function viewAlbum(albumParamName) {
           "<div>",
               getHtml(photos),
           "</div>",
-          '<input id="photoupload" type="file" accept="image/*">',
+          '<p><input id="photoupload" type="file" accept="image/*">',
           '<button id="addphoto" onclick="addPhoto(\'' + albumName + "')\">",
             "Add Photo",
           "</button>",
