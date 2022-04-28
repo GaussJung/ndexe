@@ -1,4 +1,4 @@
-console.log("S3-picture V1.1");  
+console.log("S3-picture V2.19");  
 
 // Amazon Cognito 인증 공급자 초기화 
 var albumBucketName = "album.nuriblock.com";  // 버킷명 
