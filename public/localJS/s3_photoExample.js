@@ -35,7 +35,7 @@ function listAlbums() {
         else {
             // T1-1B. 정상적으로 S3내의 객체 호출이 진행됨. 
             let albums = data.CommonPrefixes.map(function(commonPrefix) {
-
+                
                 let prefix = commonPrefix.Prefix;
                 let albumName = decodeURIComponent(prefix.replace("/", ""));
 
