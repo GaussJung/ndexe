@@ -8,12 +8,33 @@
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1122.0.js"></script>
     <script src="/localJS/s3_photoExample.js"></script>
     <script>
+       
        function getHtml(template) {
           return template.join('\n');
        }
+
        listAlbums();
-       
+   
     </script>
+
+    <style>
+
+        .iconDel {
+          font-weight:bold; 
+          font-size:1.2em;
+          margin:0px 5px;  
+          cursor:pointer;
+          color:red; 
+        }
+
+        .iconDelGuide  {
+          font-weight:bold; 
+          font-size:1.2em;
+          color:red; 
+        }
+        
+    </style>
+
   </head>
   <body>
     <h1>S3 포토앨범</h1>
