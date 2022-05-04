@@ -2,7 +2,7 @@
 
 /*
 - 프로그램 : server8010.js 
-- Version : 2.02 
+- Version : 2.03 
 - Date : 2022. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 :  S3테스트 기본 노드 웹서버 Port : 8010  
