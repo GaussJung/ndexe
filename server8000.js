@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
     let {userId, userName} = req.query;
  
     // 인자값 전달유무에 따른 페이지 분리 
-    if ( usedId !== undefinded && userName !== undefined ) {
+    if ( userId !== undefined  &&  userName !== undefined ) {
         // 호출사례  http://myserver.com:3000/?userId=1001&userName=James
         res.render("main8010", {
             title: "Member Home",
@@ -63,5 +63,5 @@ app.get('/', (req, res) => {
 });
  
 app.listen(PORT, () => {
-  console.log('HTTP V2.04 is running at:', PORT);
+  console.log('HTTP V2.05 is running at:', PORT);
 });
