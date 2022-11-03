@@ -39,6 +39,8 @@ app.get('/', (req, res) => {
       // 호출사례  http://myserver.com:3000/?userId=1001&userName=James
       let {userId, userName} = req.query;
  
+      console.log("C1-0=" + req.query); 
+
       res.render("main8010", {
           title: "Member Home",
           ctime: currTime,
