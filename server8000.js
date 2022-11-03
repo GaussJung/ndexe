@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     // 인자값 전달유무에 따른 페이지 분리 
     if ( userId !== undefined  &&  userName !== undefined ) {
         // 호출사례  http://myserver.com:3000/?userId=1001&userName=James
-        res.render("main8010", {
+        res.render("main8005", {
             title: "Member Home",
             ctime: currTime,
             totalcnt : totalConnectCnt,
