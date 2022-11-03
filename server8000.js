@@ -34,9 +34,9 @@ app.get('/', (req, res) => {
   totalConnectCnt++; 
  
   // 인자값 전달유무에 따른 페이지 분리 
-  if ( req.query != undefined && req.query !== null ) {
+  if ( req.query !== undefined  ) {
       // 인자있음 
-      // 호출사례  http://myserver.com/?userId=1001&userName=James
+      // 호출사례  http://myserver.com:3000/?userId=1001&userName=James
       let {userId, userName} = req.query;
  
       res.render("main8010", {
