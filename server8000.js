@@ -63,5 +63,5 @@ app.get('/', (req, res) => {
 });
  
 app.listen(PORT, () => {
-  console.log('HTTP V2.05 is running at:', PORT);
+  console.log('HTTP V2.06 is running at:', PORT);
 });
