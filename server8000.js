@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
             uname : userName,
         });
 
-        console.log("C1-A. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / userID=" + userId); 
+        console.log("C1-A1. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / userID=" + userId); 
     }
     else {
         // 인자없음
@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
             totalcnt : totalConnectCnt,
         });
 
-        console.log("C1-B. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+        console.log("C1-B1. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
     }; 
  
 });
