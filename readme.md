@@ -150,12 +150,12 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
     }
  </code></pre>
   
-   - 재기동 
+   - 재기동    
   sudo service nginx restart    
   http://myip 브라우저 창에 놓고 화면확인 (http://myip:8000 과 동일여부 체크) 
    
    - 로그확인    
-   tail -f /var/log/nginx/svr-access.log
+  tail -f /var/log/nginx/svr-access.log
 
-   - 서버부팅시 재기동(운영서비스 환경에서 중요) 
+   - 서버부팅시 재기동(운영서비스 환경에서 중요)    
    sudo systemctl enable nginx.service  
