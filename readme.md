@@ -1,10 +1,5 @@
-﻿# Node Basic App
-<<<<<<< HEAD
-# ndexe v2.89
-=======
-# ndexe v2.88
->>>>>>> e03cbca84d8f7d731c199696b0ad78a9aafc0e56
-
+﻿# Node Basic App v2.90
+ 
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
 
