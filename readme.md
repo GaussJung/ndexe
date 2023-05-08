@@ -1,4 +1,4 @@
-﻿# Node Basic App v2.92
+﻿# Node Basic App v2.93
  
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -14,13 +14,13 @@
 
   sudo apt-get update
 
-- 노드 V14. 설치 방법
+- 노드 V14. 설치 방법 
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -  
+  curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -  
 
-sudo apt-get install -y yarn   (자바스크립트 패키지 관리자)
+  sudo  apt-get install -y yarn   (자바스크립트 패키지 관리자)
 
-sudo apt-get install -y nodejs  
+  sudo  apt-get install -y nodejs  
 
 - 익스프레스 설치
 sudo npm install -g express
@@ -93,7 +93,7 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   (특정서비스로그) sudo pm2 logs 서비스명     
   (ex : sudo pm2 logs ndmulti)    
 
-12. 간단한 설정 예시 (3000번 + 8000번 포트 서비스 확인 )
+12. 간단한 설정 예시 (3000번 + 8000번 포트 서비스 확인)   
   sudo pm2 start ecosystem_3000.config.js 
   sudo pm2 start ecosystem_8000.config.js 
 
@@ -103,18 +103,20 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 ------- 아래는 추가로 운영상 필요시 ---------    
 13. 자동부팅 ( 80포트 + 3000번포트 )
-: as ubuntu 
-  sudo pm2 start ecosystem.config.js 
-  sudo pm2 start ecosystem_3000.config.js 
+: as ubuntu    
+  sudo pm2 start ecosystem.config.js     
+  sudo pm2 start ecosystem_3000.config.js     
  
   pm2 startup     
   (출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
-  출력문구 example : 
+
+  출력문구 example :    
   sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 
   sudo pm2 save
   sudo reboot -i 
-  재부팅후에 서비스 바로 올라오는지 확인  ( sudo reboot -i)
+
+  재부팅후에 서비스 바로 올라오는지 확인   
 
 14. 자동부팅 해제 
   sudo pm2 unstartup systemd
