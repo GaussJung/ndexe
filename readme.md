@@ -1,5 +1,5 @@
 ﻿# Node Basic App
-# ndexe v1.76
+# ndexe v2.84
 
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
