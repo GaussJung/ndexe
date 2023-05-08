@@ -1,4 +1,4 @@
-﻿# Node Basic App v2.93
+﻿# Node Basic App v2.95
  
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -113,11 +113,49 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   출력문구 example :    
   sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 
-  sudo pm2 save
-  sudo reboot -i 
+  sudo pm2 save   
+  sudo reboot -i    
 
   재부팅후에 서비스 바로 올라오는지 확인   
 
 14. 자동부팅 해제 
   sudo pm2 unstartup systemd
- 
+
+15. Nginx연동 
+  - 설치    
+  sudo apt-get install nginx -y    
+  sudo service nginx start    
+
+  - 설치확인 
+  sudo service nginx start    
+  http://myip 브라우저 창에 놓고 화면확인 
+
+  - 설정    
+  cd /etc/nginx/sites-enabled    
+
+  sudo vi default   
+  아래 내용으로 대치 ( vi or nano)
+ <pre><code> 
+    # SETUP from NGinx Basic for Port 8000 
+    server {
+            listen 80 default_server;
+            listen [::]:80 default_server;
+            index index.html index.htm;
+            server_name _;
+            access_log /var/log/nginx/svr-access.log;
+            error_log /var/log/nginx/svr-error.log;
+            location / {
+                    proxy_pass http://127.0.0.1:8000;
+            }
+    }
+ </code></pre>
+  
+   - 재기동 
+  sudo service nginx restart    
+  http://myip 브라우저 창에 놓고 화면확인 (http://myip:8000 과 동일여부 체크) 
+   
+   - 로그확인    
+   tail -f /var/log/nginx/svr-access.log
+
+   - 서버부팅시 재기동(운영서비스 환경에서 중요) 
+   sudo systemctl enable nginx.service  
