@@ -1,6 +1,6 @@
 ﻿/*
 - 프로그램 : server3000.js 
-- Version : 2.11
+- Version : 2.14
 - Date : 2023. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
 - 용도 :  S3테스트 기본 노드 웹서버 Port : 3000  
@@ -34,25 +34,18 @@ app.get('/', (req, res) => {
   totalConnectCnt++; 
 
   // 렌더링 
-  res.render("aws3000", {
-      title: "AWS API TEST Home",
+  res.render("main3000", {
+      title: "Service 3000 TEST Home",
       ctime: currTime,
       totalcnt : totalConnectCnt
   });
  
-  console.log("AWS TEST WebPage Time=" + currTime + " / Count=" + totalConnectCnt); 
+  console.log("TEST 3000 WebPage Time=" + currTime + " / Count=" + totalConnectCnt); 
 
-});
-
-// ps.10 S3 테스트 
-app.get('/awsS3', (req, res) => {
-  res.render('local/aws_s3', {
-      title: "AWS S3 Test"
-  });
 });
 
  
 
 app.listen(PORT, () => {
-  console.log('AWS API WebServer V2.11 is running at:', PORT);
+  console.log('Service WebServer V2.14 is running at:', PORT);
 });
