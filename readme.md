@@ -94,6 +94,7 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   (ex : sudo pm2 logs ndmulti)    
 
 12. 간단한 설정 예시 (3000번 + 8000번 포트 서비스 확인)   
+  cd ~/ndexe  
   sudo pm2 start ecosystem_3000.config.js 
   sudo pm2 start ecosystem_8000.config.js 
 
@@ -104,6 +105,7 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 ------- 아래는 추가로 운영상 필요시 ---------    
 13. 자동부팅 ( 3000포트 + 3000번포트 )
 : as ubuntu    
+  cd ~/ndexe  
   sudo pm2 start ecosystem_3000.config.js     
   sudo pm2 start ecosystem_8000.config.js     
  
