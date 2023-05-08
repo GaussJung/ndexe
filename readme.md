@@ -1,4 +1,4 @@
-﻿# Node Basic App v2.95
+﻿# Node Basic App v2.96
  
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -102,10 +102,10 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   http://111.120.100.222:8000   
 
 ------- 아래는 추가로 운영상 필요시 ---------    
-13. 자동부팅 ( 80포트 + 3000번포트 )
+13. 자동부팅 ( 3000포트 + 3000번포트 )
 : as ubuntu    
-  sudo pm2 start ecosystem.config.js     
   sudo pm2 start ecosystem_3000.config.js     
+  sudo pm2 start ecosystem_8000.config.js     
  
   pm2 startup     
   (출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
