@@ -1,9 +1,8 @@
-console.log("S3-picture V2.19");  
+console.log("S3-picture V2.21");  
 
 // Amazon Cognito 인증 공급자 초기화 
-var albumBucketName = "album.nuriblock.com";  // 버킷명 
-var bucketRegion = "ap-northeast-2";  // 리전명 
-var IdentityPoolId = "ap-northeast-2:2416fa55-2cb2-49fd-abf6-93d7c6a84a22"; // Cognito증명풀Id 
+let bucketRegion = "ap-northeast-2";  // 리전명 
+let IdentityPoolId = "ap-northeast-2:2416fa55-2cb2-49fd-abf6-93d7c6a84a22"; // Cognito증명풀Id 
 
 // S3구성 설정 
 AWS.config.update({
@@ -14,7 +13,7 @@ AWS.config.update({
 });
 
 // S3객체 전역선언 
-var s3Obj = new AWS.S3({
+let s3Obj = new AWS.S3({
     apiVersion: "2006-03-01",
     params: { Bucket: albumBucketName }
 });
