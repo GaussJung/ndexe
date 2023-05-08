@@ -1,4 +1,4 @@
-﻿# Node Basic App v2.91
+﻿# Node Basic App v2.92
  
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -74,7 +74,7 @@ https://도메인 ( SSL접속 )
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 - 전체 명령어    
-    sudo pm2 start ecosystem.config.js      
+  sudo pm2 start ecosystem.config.js      
   sudo pm2 stop ecosystem.config.js   
   sudo pm2 restart ecosystem.config.js  
   sudo pm2 reload ecosystem.config.js 
@@ -82,12 +82,12 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 9. 상태보기 : sudo pm2 status 
 
-10. ID별 명령어 (Status상의 Name myservice3000 가정 ) 
-  sudo pm2 start myservice3000    
-  sudo pm2 stop myservice3000    (pm2 status에서 출력됨 ) 
-  sudo pm2 delete myservice3000  (pm2 status에서 제외됨 ) 
-  sudo pm2 reload myservice3000     
- 
+10. ID별 명령어 (Status상의 Name myservice3000 가정)   
+  sudo pm2 start myservice3000      
+  sudo pm2 stop myservice3000 (pm2 status에서 출력됨)   
+  sudo pm2 delete myservice3000  (pm2 status에서 제외됨)  
+  sudo pm2 reload myservice3000 
+    
 11.  로그보기
   (전체로그) sudo pm2 logs    
   (특정서비스로그) sudo pm2 logs 서비스명     
@@ -104,17 +104,18 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 ------- 아래는 추가로 운영상 필요시 ---------    
 13. 자동부팅 ( 80포트 + 3000번포트 )
 : as ubuntu 
-sudo pm2 start ecosystem.config.js 
-sudo pm2 start ecosystem_3000.config.js 
+  sudo pm2 start ecosystem.config.js 
+  sudo pm2 start ecosystem_3000.config.js 
  
-pm2 startup     
-(출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
-ex : sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+  pm2 startup     
+  (출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
+  출력문구 example : 
+  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 
-sudo pm2 save
-sudo reboot -i 
-재부팅후에 서비스 바로 올라오는지 확인  ( sudo reboot -i)
+  sudo pm2 save
+  sudo reboot -i 
+  재부팅후에 서비스 바로 올라오는지 확인  ( sudo reboot -i)
 
 14. 자동부팅 해제 
-pm2 unstartup systemd
+  sudo pm2 unstartup systemd
  
