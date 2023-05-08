@@ -1,4 +1,4 @@
-﻿# Node Basic App v2.90
+﻿# Node Basic App v2.91
  
 1. 개요 
 - 기능 :  클라우드서버 구성 테스트  
@@ -74,34 +74,34 @@ https://도메인 ( SSL접속 )
 https://pm2.keymetrics.io/docs/usage/application-declaration/
 
 - 전체 명령어    
-sudo pm2 start ecosystem.config.js      
-sudo pm2 stop ecosystem.config.js   
-sudo pm2 restart ecosystem.config.js  
-sudo pm2 reload ecosystem.config.js 
-sudo pm2 delete ecosystem.config.js   
+    sudo pm2 start ecosystem.config.js      
+  sudo pm2 stop ecosystem.config.js   
+  sudo pm2 restart ecosystem.config.js  
+  sudo pm2 reload ecosystem.config.js 
+  sudo pm2 delete ecosystem.config.js   
 
 9. 상태보기 : sudo pm2 status 
 
-10. ID별 명령어 (Status상의 Name myservice3000 가정 )
-sudo pm2 start myservice3000   
-sudo pm2 stop myservice3000    (pm2 status에서 출력됨 )
-sudo pm2 delete myservice3000  (pm2 status에서 제외됨 )
-sudo pm2 reload myservice3000   
+10. ID별 명령어 (Status상의 Name myservice3000 가정 ) 
+  sudo pm2 start myservice3000    
+  sudo pm2 stop myservice3000    (pm2 status에서 출력됨 ) 
+  sudo pm2 delete myservice3000  (pm2 status에서 제외됨 ) 
+  sudo pm2 reload myservice3000     
  
 11.  로그보기
-(전체로그) sudo pm2 logs    
-(특정서비스로그) sudo pm2 logs 서비스명     
-( ex : sudo pm2 logs ndmulti )    
+  (전체로그) sudo pm2 logs    
+  (특정서비스로그) sudo pm2 logs 서비스명     
+  (ex : sudo pm2 logs ndmulti)    
 
 12. 간단한 설정 예시 (3000번 + 8000번 포트 서비스 확인 )
-sudo pm2 start ecosystem_3000.config.js 
-sudo pm2 start ecosystem_8000.config.js 
+  sudo pm2 start ecosystem_3000.config.js 
+  sudo pm2 start ecosystem_8000.config.js 
 
 - 접속 확인 
-  http://111.120.100.222:3000 
-  http://111.120.100.222:8000 
+  http://111.120.100.222:3000   
+  http://111.120.100.222:8000   
 
-------- 아래는 추가로 운영상 필요시 --------- 
+------- 아래는 추가로 운영상 필요시 ---------    
 13. 자동부팅 ( 80포트 + 3000번포트 )
 : as ubuntu 
 sudo pm2 start ecosystem.config.js 
