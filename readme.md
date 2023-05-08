@@ -51,14 +51,17 @@ npm install
     A. 개발모드  : 아래중 한가지    
       sudo node server.js ( 80번 포트 )   
       sudo node server3000.js ( 3000번 포트 )   
+      sudo node server8000.js ( 3000번 포트 )   
       sudo node sslserver.js  ( SSL적용 )   
 
     B. 운영모드  : 아래중 한가지 
-    - 기본80접속  
+    - 기본80 접속  
       sudo pm2 start ecosystem.config.js   
     - 3000번포트 접속     
       sudo pm2 start ecosystem_3000.config.js   
-    - SSL접속     
+    - 8000번포트 접속     
+      sudo pm2 start ecosystem_8000.config.js 
+    - SSL접속 (인증서있는 경우)   
       sudo pm2 start ecosystem_ssl.config.js   
 
     ※ PM2기본 설정파일 :  ecosystem.config.js   
@@ -98,6 +101,7 @@ sudo pm2 delete ecosystem.config.js
 : as ubuntu 
 sudo pm2 start ecosystem.config.js
 sudo pm2 start ecosystem_3000.config.js 
+sudo pm2 start ecosystem_8000.config.js 
 
 pm2 startup     
 (출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
