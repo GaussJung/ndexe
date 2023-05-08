@@ -2,12 +2,12 @@
 
 /*
 - 프로그램 : server3000.js 
-- Version : 1.51 
-- Date : 2021. 04. 01  
+- Version : 2.11
+- Date : 2023. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버 Port : 3000  
+- 용도 :  S3테스트 기본 노드 웹서버 Port : 3000  
 - 기동1 : sudo node server3000.js 
-- 기동2 : sudo pm2 start ecosystem_3000.config.js
+- 기동2 : sudo pm2 start ecosystem_8000.config.js
 - 확인 : http://서버IP:3000 or http://서버DNS:3000
 */ 
  
@@ -36,33 +36,25 @@ app.get('/', (req, res) => {
   totalConnectCnt++; 
 
   // 렌더링 
-  res.render("main3000", {
-      title: "Node Home",
+  res.render("aws3000", {
+      title: "AWS API TEST Home",
       ctime: currTime,
       totalcnt : totalConnectCnt
   });
  
-  console.log("Connected! WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
+  console.log("AWS TEST WebPage Time=" + currTime + " / Count=" + totalConnectCnt); 
 
 });
 
-
-// ps.20 로컬 페이지 감독자 화면
-app.get('/admin', (req, res) => {
-  res.render('local/admin', {
-      title: "ADMIN"
+// ps.10 S3 테스트 
+app.get('/awsS3', (req, res) => {
+  res.render('local/aws_s3', {
+      title: "AWS S3 Test"
   });
 });
 
-
-// ps.20 로컬 페이지 감독자 화면
-app.get('/user', (req, res) => {
-  res.render('local/user', {
-      title: "Welcome"
-  });
-});
-
+ 
 
 app.listen(PORT, () => {
-  console.log('Node WebServer V1.52 is running at:', PORT);
+  console.log('AWS API WebServer V2.11 is running at:', PORT);
 });

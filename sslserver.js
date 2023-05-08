@@ -40,7 +40,7 @@ let totalConnectCnt = 0;  // 서버 접속 횟수
  
 const express = require('express');     // 익스프레스 
 const app   = express();                
-const PORT = process.env.PORT = 443;   // 개방포트 
+const PORT = process.env.PORT = 443;    // 개방포트 
 const fs = require('fs');               // 파일처리 (인증서읽기)
 const httpsConnect = require('https');  // 보안접속 
 const httpConnect = require('http');    // 일반접속 (not 보안)
@@ -48,9 +48,9 @@ const httpConnect = require('http');    // 일반접속 (not 보안)
 const cors = require('cors');           // 자원공유설정 
 
 // ============================================== F15. 인증서설정    ==============================================
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/sanw.soystudy.com/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/sanw.myservice.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/sanw.myservice.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/sanw.myservice.com/chain.pem', 'utf8');
  
 
 const credentials = {
@@ -69,10 +69,8 @@ const corsOptions = {
   
 app.options('*',cors(corsOptions));
 app.use(cors(corsOptions));
-app.use(cors({origin : "https://www.soystudy.com"}));
-// app.use(cors({origin : "https://adm.soystudy.com"}));
-
-
+app.use(cors({origin : "https://www.myservice.com"}));
+ 
   
 // 라이브러리 유틸 
 require('date-utils');                  // 일자/시간 유틸리티 
@@ -83,11 +81,11 @@ app.use(express.static('public'));
 
 // 홈접속 기본 
 function connectHome(req, res, actVal) {
-    // 접속시간 정보 설정 a
+    // 접속시간 정보 설정  
     let todayDate = new Date(); 
     let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal = "S10020"; 
-    let titleVal = "산운초등학교 문제은행 접속홈"
+    let titleVal = "미래초등학교 문제은행 접속홈"
     let versionVal  = "v1.2"; 
     let backColor   = "#012e5c"; 
 
@@ -116,7 +114,7 @@ function connectHomeTest(req, res, actVal) {
     let todayDate = new Date(); 
     let currTime  = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     let tbidVal     = "S10010"; 
-    let titleVal    = " >> 소이초등학교 문제은행 접속홈 <<"
+    let titleVal    = " >> Service Main <<"
     let versionVal  = "V0.9"; 
     let backColor   = "#f340bd";
      

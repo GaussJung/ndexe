@@ -1,9 +1,9 @@
 ﻿/*
 - 프로그램 : server8000.js 
-- Version : 2.01 
-- Date : 2022. 04. 01  
+- Version : 2.03 
+- Date : 2023. 04. 27  
 - Creator : C.W.Jung(cwjung123@gmail.com)
-- 용도 : 기본 노드 웹서버 Port : 8000  
+- 용도 :  S3테스트 기본 노드 웹서버 Port : 8000  
 - 기동1 : sudo node server8000.js 
 - 기동2 : sudo pm2 start ecosystem_8000.config.js
 - 확인 : http://서버IP:8000 or http://서버DNS:8000
@@ -26,42 +26,33 @@ app.use(express.static('public'));
 // ps.1 시작 페이지
 app.get('/', (req, res) => {
 
-    // 접속시간 정보 설정 
-    let todayDate = new Date(); 
-    let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-
-    // 접속횟수 추가 
-    totalConnectCnt++; 
-    
-    let {userId, userName} = req.query;
+  // 접속시간 정보 설정 
+  let todayDate = new Date(); 
+  let currTime = todayDate.toFormat('YYYY-MM-DD HH24:MI:SS');
  
-    // 인자값 전달유무에 따른 페이지 분리 
-    if ( userId !== undefined  &&  userName !== undefined ) {
-        // 호출사례  http://myserver.com:3000/?userId=1001&userName=James
-        res.render("main8005", {
-            title: "Member Home",
-            ctime: currTime,
-            totalcnt : totalConnectCnt,
-            uid : userId,
-            uname : userName,
-        });
+  // 접속횟수 추가 
+  totalConnectCnt++; 
 
-        console.log("C1-A1. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt + " / userID=" + userId); 
-    }
-    else {
-        // 인자없음
-        // 호출사례  http://myserver.com/?userId=1001&userName=James
-        res.render("main8000", {
-            title: "Service Home",
-            ctime: currTime,
-            totalcnt : totalConnectCnt,
-        });
-
-        console.log("C1-B1. Service WebPage HOME Time=" + currTime + " / Count=" + totalConnectCnt); 
-    }; 
+  // 렌더링 
+  res.render("main8000", {
+      title: "main API TEST Home",
+      ctime: currTime,
+      totalcnt : totalConnectCnt
+  });
  
+  console.log("main8000 API TEST WebPage Time=" + currTime + " / Count=" + totalConnectCnt); 
+
 });
+
+// ps.10 S3 테스트 
+app.get('/awsS3', (req, res) => {
+  res.render('local/aws_s3', {
+      title: "AWS S3 Test"
+  });
+});
+
  
+
 app.listen(PORT, () => {
-  console.log('HTTP V2.06 is running at:', PORT);
+  console.log('main8000 API WebServer V2.24 is running at:', PORT);
 });
