@@ -1,6 +1,4 @@
-﻿
-
-/*
+﻿/*
 - 프로그램 : sslserver.js 
 - Version : 1.53 
 - Date : 2021. 09. 01  
