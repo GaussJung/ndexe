@@ -1,9 +1,12 @@
 ﻿# Node Basic App v3.04
 1. 개요 
-- 기능 :  클라우드서버 구성 테스트  
+- 기능 : 클라우드서버 설정 테스트  
+- 목적 : AWS학습 + 기본백엔드 구성예시  
+- 1 ~ 12번  : AWS인스턴스(Ubuntu)구동 + Node + PM2 (테스트모드)
+- 13번 이후 : NGinX연동, crontab, 서버기동 등 포함 (운영모드)
 
-2. 참여자  
-- 작성자 : C.W.Jung ( cwjung123@gmail.com )
+2. 작성자   
+-  정철웅 소마 멘토 (cwjung123@gmail.com)
 
 3. 설치 및 환경 (as ubuntu) 
 
