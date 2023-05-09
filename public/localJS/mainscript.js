@@ -18,6 +18,8 @@ function checkImageURL() {
     
 };
 
+// 초기 이미지 저장주소 확인 
+checkImageURL(); 
 
 // F20. 이미지 로더 버튼 대기 
 loadButton.addEventListener("click", function() {
