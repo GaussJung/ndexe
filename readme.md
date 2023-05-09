@@ -148,11 +148,32 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
  </code></pre>
   
    - 재기동    
-  sudo service nginx restart    
-  http://myip 브라우저 창에 놓고 화면확인 (http://myip:8000 과 동일여부 체크) 
+    sudo service nginx restart    
+    http://myip 브라우저 창에 놓고 화면확인 (http://myip:8000 과 동일여부 체크) 
    
    - 로그확인    
-  tail -f /var/log/nginx/svr-access.log
+    tail -f /var/log/nginx/svr-access.log
 
    - 서버부팅시 재기동(운영서비스 환경에서 중요)    
-   sudo systemctl enable nginx.service  
+    sudo systemctl enable nginx.service  
+
+   16. 부팅초기 기동Shell설정   
+   - 기동 Shell작성 
+   <pre><code> 
+      #!/bin/bash 
+      # 소스동기화
+      cd /home/ubuntu/ndexe
+      git pull
+
+      # 로그남기기
+      NOW="$(date +'%Y%m%d')_$(date +'%H%M%S')"
+      LOGFILE=${basefolder}/reboot_$NOW.log
+      ls -al > $LOGFILE
+   </code></pre>
+
+   - crontab -e     (아래한줄 가장아래 추가)    
+     @reboot  /home/ubuntu/initStart.sh   
+   
+   - 이후 서버기동(Node + PM2 + NginX)과 동시에 소스다운 + 서비스동작     
+
+  17. 위의 절차 진행후 Image로 작성(AMI)
