@@ -1,11 +1,12 @@
-console.log("S-110 mainscript V1.0");  
+console.log("S-110 mainscript V1.1");  
  
-let imgBtn = document.getElementById("imgLoadBtn");  // 이미지로드버튼 
 
-// F20. 이미지버튼 이벤트 대기 
-imgBtn.addEventListener("click", function() { 
+const loadButton = document.getElementById("imgLoadBtn");
+
+loadButton.addEventListener("click", function() {
     loadImage(); // 이미지 로딩 호출 
-});  
+});
+
 
 // F30. 이미지주소에 해당하는 이미지 채우기 
 function loadImage() {
