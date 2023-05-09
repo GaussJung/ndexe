@@ -162,15 +162,18 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
     cd ~  
     vi initStart.sh   
    <pre><code> 
-      #!/bin/bash 
-      # 소스동기화
-      cd /home/ubuntu/ndexe
-      git pull
+    #!/bin/bash
+    # 기본폴더정의 
+    basefolder=/home/ubuntu
 
-      # 로그남기기
-      NOW="$(date +'%Y%m%d')_$(date +'%H%M%S')"
-      LOGFILE=${basefolder}/reboot_$NOW.log
-      ls -al > $LOGFILE
+    # 로그남기기
+    NOW="$(date +'%Y%m%d')_$(date +'%H%M%S')"
+    LOGFILE=${basefolder}/reboot_$NOW.log
+    ls -al > $LOGFILE
+
+    # GIT 소스동기화
+    cd ${basefolder}/ndexe
+    git pull 
    </code></pre>
    - 파일실행모드 설정    
      chmod 755 initStart.sh   
