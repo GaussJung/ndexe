@@ -54,5 +54,5 @@ app.get('/awsS3', (req, res) => {
  
 
 app.listen(PORT, () => {
-  console.log('main8000 API WebServer V2.24 is running at:', PORT);
+  console.log('main8000 API WebServer V3 is running at:', PORT);
 });
