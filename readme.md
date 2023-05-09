@@ -109,13 +109,8 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   sudo pm2 start ecosystem_3000.config.js     
   sudo pm2 start ecosystem_8000.config.js     
  
-  pm2 startup     
-  (출력되는 문구 확인후 붙여넣음 - root로 실행시 자동진행 )   
-
-  출력문구 example :    
-  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
-
-  sudo pm2 save   
+  sudo pm2 startup : 시스템 자동기동 설정됨.   
+  sudo pm2 save : 부팅시에 자동기동   
   sudo reboot -i    
 
   재부팅후에 서비스 바로 올라오는지 확인   
