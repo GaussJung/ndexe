@@ -98,7 +98,7 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
   sudo pm2 start ecosystem_3000.config.js 
   sudo pm2 start ecosystem_8000.config.js 
 
-- 접속 확인 
+- 접속 확인     
   http://111.120.100.222:3000   
   http://111.120.100.222:8000   
 
@@ -115,7 +115,7 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 
   재부팅후에 서비스 바로 올라오는지 확인   
 
-14. 자동부팅 해제 
+14. 자동부팅 해제   
   sudo pm2 unstartup systemd
 
 15. Nginx연동 
