@@ -1,7 +1,7 @@
-console.log("S3-picture V2.21");  
+console.log("S3-picture V2.23");  
 
 // Amazon Cognito 인증 공급자 초기화 
-let albumBucketName = "album.nuriblock.com";  // 버킷명 
+let albumBucketName = "album-nuriblock-com";  // 버킷명 
 let bucketRegion = "ap-northeast-2";  // 리전명 
 let IdentityPoolId = "ap-northeast-2:127866ec-3001-40d7-bd26-45e021e1e773"; // Cognito증명풀Id 
 
@@ -25,6 +25,8 @@ function listAlbums() {
     // T1. S3객체 리스트업 
     s3Obj.listObjects({ Delimiter: "/" }, function(err, data) {
 
+        let albums; 
+        
         // if T1-1. 리스트확인  
         if (err) {
             // T1-1A. 오류 
@@ -33,41 +35,49 @@ function listAlbums() {
              return false; 
         }
         else {
+
+            let albums;  // 앨범목록 
+            
             // T1-1B. 정상적으로 S3내의 객체 호출이 진행됨. 
-            let albums = data.CommonPrefixes.map(function(commonPrefix) {
-                
+            albums = data.CommonPrefixes.map( function(commonPrefix) {
+
                 let prefix = commonPrefix.Prefix;
                 let albumName = decodeURIComponent(prefix.replace("/", ""));
 
                 return getHtml([
-                  "<li>",
-                      "<span onclick=\"deleteAlbum('" + albumName + "')\">X</span>",
-                      "<span onclick=\"viewAlbum('" + albumName + "')\">",
-                      albumName,
-                      "</span>",
-                  "</li>"
+                    "<li>",
+                        "<span onclick=\"deleteAlbum('" + albumName + "')\">X</span>",
+                        "<span onclick=\"viewAlbum('" + albumName + "')\">",
+                        albumName,
+                        "</span>",
+                    "</li>"
                 ]);
 
             });
 
             // 앨범보기 메시지 
-            let message = albums.length
-              ? getHtml([
-                "<p>Click on an album name to view it.</p>",
-                "<p>Click on the X to delete the album.</p>"
-              ])
-              : "<p>You do not have any albums. Please Create album.";
-
+            let message = ""; 
+        
+            if ( albums.length > 0 ) {
+                message = getHtml([  
+                            "<p>Click on an album name to view it.</p>", 
+                            "<p>Click on the X to delete the album.</p>"
+                        ]); 
+            }
+            else {
+                message = "<p>You do not have any albums. Please Create album.";
+            };  
+    
             // 템플릿 출력 
             let htmlTemplate = [
-              "<h2>Albums</h2>",
+                "<h2>Albums</h2>",
                 message,
-              "<ul>",
-              getHtml(albums),
-              "</ul>",
-              "<button onclick=\"createAlbum(prompt('Enter Album Name:'))\">",
-              "Create New Album",
-              "</button>"
+                "<ul>",
+                getHtml(albums),
+                "</ul>",
+                "<button onclick=\"createAlbum(prompt('Enter Album Name:'))\">",
+                "Create New Album",
+                "</button>"
             ];
 
             // "app" DOM에 html생성 
@@ -99,6 +109,13 @@ function createAlbum(albumParamName) {
 
     // 앨범키 인코딩 
     let albumKey = encodeURIComponent(albumName);
+
+    console.log("===== albumName =====");  
+    console.log(albumName);  
+
+    console.log("===== albumKey =====");  
+    console.log(albumKey);  
+
 
     // CA2. 객체헤더정보 확인 
     s3Obj.headObject({ Key: albumKey }, function(err, data) {

@@ -1,4 +1,4 @@
-﻿# Node Basic App v3.05
+﻿# Node Basic App v3.06
 1. 개요 
 - 기능 : 클라우드서버 설정 테스트  
 - 목적 : AWS학습 + 기본백엔드 구성예시  
