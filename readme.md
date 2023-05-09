@@ -159,6 +159,8 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
 
    16. 부팅초기 기동Shell설정   
    - 기동 Shell작성 
+    cd ~  
+    vi initStart.sh   
    <pre><code> 
       #!/bin/bash 
       # 소스동기화
@@ -170,7 +172,8 @@ https://pm2.keymetrics.io/docs/usage/application-declaration/
       LOGFILE=${basefolder}/reboot_$NOW.log
       ls -al > $LOGFILE
    </code></pre>
-
+   - 파일실행모드 설정    
+     chmod 755 initStart.sh   
    - crontab -e     (아래한줄 가장아래 추가)    
      @reboot  /home/ubuntu/initStart.sh   
    
