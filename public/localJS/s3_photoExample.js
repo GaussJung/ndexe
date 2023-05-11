@@ -1,11 +1,10 @@
 console.log("S3-picture V2.23");  
-
-// Amazon Cognito 인증 공급자 초기화 
+ 
 let albumBucketName = "album-nuriblock-com";  // 버킷명 
 let bucketRegion = "ap-northeast-2";  // 리전명 
 let IdentityPoolId = "ap-northeast-2:127866ec-3001-40d7-bd26-45e021e1e773"; // Cognito증명풀Id 
 
-// S3구성 설정 
+// Amazon Cognito 인증 공급자 초기화 
 AWS.config.update({
     region: bucketRegion,
     credentials: new AWS.CognitoIdentityCredentials({
