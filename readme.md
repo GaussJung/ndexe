@@ -1,4 +1,4 @@
-﻿# Node Basic App v3.17
+﻿# Node Basic App v3.21
 1. 개요 
 - 기능 : 클라우드서버 설정 테스트  
 - 목적 : AWS학습 + 기본백엔드 구성예시  
@@ -16,29 +16,29 @@
 
   sudo apt-get update
 
-- 노드 V14. 설치 방법 
+- 노드 V20. 설치 방법  
 
-  curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -  
+  curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -   
 
-  sudo  apt-get install -y yarn   (자바스크립트 패키지 관리자)
+  sudo  apt-get install -y yarn   (자바스크립트 패키지 관리자)  
 
   sudo  apt-get install -y nodejs  
 
-- 익스프레스 설치
+- 익스프레스 설치  
 sudo npm install -g express
  
-- 프로세스 관리도구 PM2설치 
+- 프로세스 관리도구 PM2설치  
 sudo npm install pm2 -g
  
 - 설치확인
  node -v    
-v14.21.3 (2023. 04. 21)  
+v20.12.2 (2024. 04. 24)    
 
  
 4. 소스복제 
-- 홈디렉토리 이동 (as ubuntu)
+- 홈디렉토리 이동 (as ubuntu)  
 cd ~
-- git 클론 (as ubnutu)
+- git 클론 (as ubnutu)  
 git clone https://github.com/GaussJung/ndexe 
 
 - 라이브러리 설치     
