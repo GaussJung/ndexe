@@ -1,4 +1,4 @@
-﻿# Node Basic App v3.5
+﻿# Node Basic App v3.7
 1. 개요 
 - 기능 : 클라우드서버 설정 테스트  
 - 목적 : AWS학습 + 기본백엔드 구성예시  
@@ -16,9 +16,9 @@
 
   sudo apt-get update
 
-- 노드 V20. 설치 방법  
+- 노드 V22. 설치 방법  
 
-  curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash --   
+  curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash --   
 
   sudo  apt-get install -y yarn   (자바스크립트 패키지 관리자)  
 
@@ -32,7 +32,7 @@ sudo npm install pm2 -g
  
 - 설치확인
  node -v    
-v20.12.2 (2024. 04. 24)    
+v22.16.0 (2026. 06. 20)    
 
  
 4. 소스복제 
